@@ -1,0 +1,2940 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OPTIMAN — премиальный комплекс для мужской силы. VENI, VIDI, VICI. Научно выверенная формула 350 мг. Sildex.">
+    <title>OPTIMAN — VENI, VIDI, VICI | Премиальная мужская сила</title>
+
+    <!-- Google Fonts: Cinzel (Roman serif) + Inter (clean sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════════════════════
+           CSS CUSTOM PROPERTIES — Dark Luxury Theme
+        ═══════════════════════════════════════════════ */
+        :root {
+            --black:        #0A0A0A;
+            --black-2:      #111111;
+            --black-3:      #161616;
+            --black-4:      #1C1C1C;
+            --gold:         #C9A227;
+            --gold-light:   #D4AF37;
+            --gold-dark:    #B8972E;
+            --gold-dim:     rgba(201, 162, 39, 0.12);
+            --gold-border:  rgba(201, 162, 39, 0.22);
+            --white:        #FFFFFF;
+            --text:         #DDD5C4;
+            --text-muted:   #8A7F70;
+            --text-dim:     #504840;
+            --font-serif:   'Cinzel', 'Georgia', serif;
+            --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+            --t:            0.3s;
+        }
+
+        /* ═══════════════════════════════════════════════
+           RESET & BASE
+        ═══════════════════════════════════════════════ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            background: var(--black);
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+        ul { list-style: none; }
+        button { font-family: inherit; }
+
+        /* ═══════════════════════════════════════════════
+           SCROLL PROGRESS BAR
+        ═══════════════════════════════════════════════ */
+        #scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.08s linear;
+            pointer-events: none;
+        }
+
+        /* ═══════════════════════════════════════════════
+           LAYOUT UTILITIES
+        ═══════════════════════════════════════════════ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+        .section { padding: 100px 0; position: relative; }
+
+        /* Section tag pill */
+        .section-tag {
+            display: inline-block;
+            font-family: var(--font-serif);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            padding: 6px 18px;
+            border: 1px solid var(--gold-border);
+            background: var(--gold-dim);
+            margin-bottom: 18px;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(26px, 3.8vw, 50px);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.12;
+            margin-bottom: 18px;
+        }
+        .section-title span { color: var(--gold); }
+
+        .section-subtitle {
+            font-size: clamp(14px, 1.6vw, 17px);
+            color: var(--text-muted);
+            font-weight: 300;
+            line-height: 1.85;
+            max-width: 580px;
+        }
+
+        /* Gold rule */
+        .gold-line {
+            width: 56px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 22px 0;
+        }
+        .gold-line.center { margin-left: auto; margin-right: auto; }
+
+        /* Ornamental divider */
+        .ornament-divider {
+            display: flex; align-items: center; gap: 18px;
+            margin: 50px 0;
+        }
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: ''; flex: 1; height: 1px;
+        }
+        .ornament-divider::before { background: linear-gradient(90deg, transparent, var(--gold-border)); }
+        .ornament-divider::after  { background: linear-gradient(90deg, var(--gold-border), transparent); }
+        .ornament-symbol {
+            font-family: var(--font-serif);
+            font-size: 16px; color: var(--gold);
+            letter-spacing: 8px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           SCROLL REVEAL ANIMATIONS
+        ═══════════════════════════════════════════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-28px);
+            transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(28px);
+            transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+        }
+        .reveal.visible,
+        .reveal-left.visible,
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translate(0);
+        }
+        /* Stagger delays */
+        .reveal[data-delay="1"] { transition-delay: 0.1s; }
+        .reveal[data-delay="2"] { transition-delay: 0.2s; }
+        .reveal[data-delay="3"] { transition-delay: 0.3s; }
+        .reveal[data-delay="4"] { transition-delay: 0.4s; }
+        .reveal[data-delay="5"] { transition-delay: 0.5s; }
+
+        /* ═══════════════════════════════════════════════
+           BUTTON SYSTEM
+        ═══════════════════════════════════════════════ */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(110deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
+            background-size: 200% 100%;
+            color: #0A0A0A;
+            font-family: var(--font-serif);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 17px 42px;
+            border: none;
+            cursor: pointer;
+            transition: background-position 0.5s var(--ease), transform 0.2s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: rgba(255,255,255,0.08);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .btn-primary:hover {
+            background-position: 100% 0;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(201, 162, 39, 0.35);
+        }
+        .btn-primary:hover::after { opacity: 1; }
+        .btn-primary:active { transform: translateY(0); }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--gold);
+            font-family: var(--font-serif);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 16px 42px;
+            border: 1px solid var(--gold-border);
+            cursor: pointer;
+            transition: border-color var(--t), background var(--t), box-shadow var(--t);
+        }
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            background: var(--gold-dim);
+            box-shadow: 0 0 24px rgba(201, 162, 39, 0.12);
+        }
+
+        /* ═══════════════════════════════════════════════
+           STICKY HEADER
+        ═══════════════════════════════════════════════ */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 22px 0;
+            transition: padding 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+            border-bottom: 1px solid transparent;
+        }
+        .header.scrolled {
+            background: rgba(10, 10, 10, 0.96);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            padding: 14px 0;
+            border-bottom-color: var(--gold-border);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .header-logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: var(--gold);
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        .header-logo span {
+            display: block;
+            font-size: 8px;
+            font-weight: 400;
+            letter-spacing: 5px;
+            color: var(--text-dim);
+            margin-top: 3px;
+        }
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+        .header-nav a {
+            font-family: var(--font-serif);
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            transition: color var(--t);
+        }
+        .header-nav a:hover { color: var(--gold); }
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--gold);
+            font-family: var(--font-serif);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 9px 22px;
+            border: 1px solid var(--gold-border);
+            cursor: pointer;
+            transition: background var(--t), border-color var(--t);
+        }
+        .header-cta:hover {
+            background: var(--gold-dim);
+            border-color: var(--gold);
+        }
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px; height: 1px;
+            background: var(--gold);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+        /* ═══════════════════════════════════════════════
+           MOBILE NAV DRAWER
+        ═══════════════════════════════════════════════ */
+        .mobile-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.75);
+            z-index: 1400;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+        .mobile-overlay.open { opacity: 1; visibility: visible; }
+        .mobile-nav {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 280px; height: 100vh;
+            background: var(--black-2);
+            border-left: 1px solid var(--gold-border);
+            z-index: 1500;
+            padding: 84px 32px 40px;
+            transition: right 0.4s var(--ease);
+            display: flex; flex-direction: column;
+        }
+        .mobile-nav.open { right: 0; }
+        .mobile-nav a {
+            display: block;
+            font-family: var(--font-serif);
+            font-size: 12px; font-weight: 400;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(201,162,39,0.08);
+            transition: color var(--t);
+        }
+        .mobile-nav a:hover { color: var(--gold); }
+        .mobile-nav .btn-primary {
+            margin-top: 32px;
+            width: 100%; justify-content: center;
+            font-size: 11px; padding: 14px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           1. HERO SECTION
+        ═══════════════════════════════════════════════ */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+        #hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 72% 50%, rgba(201,162,39,0.055) 0%, transparent 68%),
+                radial-gradient(ellipse 35% 45% at 15% 85%, rgba(201,162,39,0.035) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        #hero::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative; z-index: 1;
+        }
+        /* Hero Text */
+        .hero-eyebrow {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 24px;
+        }
+        .hero-eyebrow-line { width: 36px; height: 1px; background: var(--gold); flex-shrink: 0; }
+        .hero-eyebrow-text {
+            font-family: var(--font-serif);
+            font-size: 10px; letter-spacing: 4px;
+            text-transform: uppercase; color: var(--gold);
+        }
+        .hero-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(48px, 6.5vw, 84px);
+            font-weight: 900;
+            line-height: 0.92;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+        .hero-headline .accent { color: var(--gold); display: block; }
+        .hero-subheadline {
+            font-family: var(--font-serif);
+            font-size: clamp(11px, 1.3vw, 14px);
+            font-weight: 400; letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+        }
+        .hero-desc {
+            font-size: 15px; font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.95; max-width: 460px;
+            margin-bottom: 48px;
+            border-left: 1px solid var(--gold-border);
+            padding-left: 20px;
+        }
+        .hero-actions {
+            display: flex; align-items: center; gap: 18px;
+            flex-wrap: wrap; margin-bottom: 52px;
+        }
+        .hero-trust-row {
+            display: flex; align-items: center; gap: 28px;
+            flex-wrap: wrap;
+        }
+        .trust-item {
+            display: flex; align-items: center; gap: 10px;
+        }
+        .trust-icon {
+            width: 30px; height: 30px;
+            border: 1px solid var(--gold-border);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .trust-text { font-size: 11px; color: var(--text-muted); line-height: 1.35; }
+
+        /* ── Product Visual (CSS 3D Box) ── */
+        .hero-visual {
+            display: flex; justify-content: center; align-items: center;
+            position: relative;
+        }
+        .product-glow {
+            position: absolute;
+            width: 380px; height: 380px;
+            background: radial-gradient(circle, rgba(201,162,39,0.10) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50%       { opacity: 1;   transform: scale(1.08); }
+        }
+        .product-wrap {
+            position: relative; z-index: 2;
+            animation: floatBox 6s ease-in-out infinite;
+        }
+        @keyframes floatBox {
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50%       { transform: translateY(-18px) rotate(1deg); }
+        }
+        /* The box face */
+        .p-box {
+            width: 310px; height: 238px;
+            background: linear-gradient(130deg, #1e1e1e 0%, #252525 40%, #1a1a1a 100%);
+            border: 1px solid rgba(201,162,39,0.28);
+            position: relative; overflow: hidden;
+            box-shadow:
+                0 0 0 1px rgba(0,0,0,0.6),
+                0 32px 80px rgba(0,0,0,0.65),
+                inset 0 1px 0 rgba(201,162,39,0.15),
+                inset -1px 0 0 rgba(0,0,0,0.4);
+        }
+        .p-box::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(130deg, rgba(255,255,255,0.025) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        /* Box spine */
+        .p-box-spine {
+            position: absolute; top: 0; right: -32px;
+            width: 32px; height: 238px;
+            background: linear-gradient(180deg, #141414, #0e0e0e);
+            border: 1px solid rgba(201,162,39,0.14);
+            border-left: none;
+            clip-path: polygon(0 0, 100% 6px, 100% 100%, 0 100%);
+        }
+        /* Box typography */
+        .p-top-row {
+            position: absolute; top: 12px; left: 16px; right: 16px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .p-brand-label {
+            font-family: var(--font-serif);
+            font-size: 7.5px; letter-spacing: 5px;
+            color: rgba(201,162,39,0.45); text-transform: uppercase;
+        }
+        .p-sildex-circle {
+            width: 46px; height: 46px;
+            border: 1px solid rgba(201,162,39,0.38);
+            border-radius: 50%;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 1px;
+        }
+        .p-sildex-s {
+            font-family: var(--font-serif);
+            font-size: 13px; font-weight: 700;
+            color: rgba(201,162,39,0.7);
+            line-height: 1;
+        }
+        .p-sildex-word {
+            font-family: var(--font-serif);
+            font-size: 6px; letter-spacing: 2px;
+            color: rgba(201,162,39,0.45);
+            line-height: 1;
+        }
+        .p-main-name {
+            position: absolute;
+            left: 0; right: 0; top: 50%;
+            transform: translateY(-58%);
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 58px; font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--gold);
+            line-height: 1;
+            text-shadow: 0 4px 24px rgba(201,162,39,0.25);
+        }
+        .p-motto {
+            position: absolute;
+            left: 0; right: 0;
+            top: calc(50% + 36px);
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 13px; font-style: italic;
+            letter-spacing: 1.5px;
+            color: rgba(201,162,39,0.62);
+        }
+        .p-bottom-row {
+            position: absolute; bottom: 14px; left: 16px; right: 16px;
+            display: flex; justify-content: space-between;
+        }
+        .p-mgm, .p-caps {
+            font-family: var(--font-serif);
+            font-size: 11px; color: rgba(201,162,39,0.45);
+        }
+
+        /* ═══════════════════════════════════════════════
+           2. SOCIAL PROOF — STATS BAND
+        ═══════════════════════════════════════════════ */
+        #social-proof {
+            padding: 0;
+            border-top: 1px solid var(--gold-border);
+            border-bottom: 1px solid var(--gold-border);
+            background: var(--black-2);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-right: 1px solid var(--gold-border);
+        }
+        .stat-cell {
+            padding: 44px 28px;
+            text-align: center;
+            border-left: 1px solid var(--gold-border);
+            transition: background var(--t);
+        }
+        .stat-cell:hover { background: var(--black-3); }
+        .stat-num {
+            display: block;
+            font-family: var(--font-serif);
+            font-size: clamp(34px, 3.5vw, 50px);
+            font-weight: 700; color: var(--gold);
+            line-height: 1; margin-bottom: 8px;
+        }
+        .stat-lbl {
+            font-size: 11px; font-weight: 400;
+            letter-spacing: 0.8px; text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ═══════════════════════════════════════════════
+           3. PROBLEM → SOLUTION
+        ═══════════════════════════════════════════════ */
+        .ps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--gold-border);
+        }
+        .ps-col {
+            padding: 60px 50px;
+        }
+        .ps-col.problem { background: var(--black); }
+        .ps-col.solution { background: var(--black-2); border-left: 1px solid var(--gold-border); }
+        .col-eyebrow {
+            display: flex; align-items: center; gap: 10px;
+            font-family: var(--font-serif);
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 3px; text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+        .col-eyebrow::before { content: ''; width: 18px; height: 1px; background: currentColor; }
+        .col-eyebrow.problem { color: #5e5248; }
+        .col-eyebrow.solution { color: var(--gold); }
+        .col-title {
+            font-family: var(--font-serif);
+            font-size: clamp(20px, 2.2vw, 28px);
+            font-weight: 700; color: var(--white);
+            line-height: 1.2; margin-bottom: 34px;
+        }
+        /* Problem list */
+        .p-list { display: flex; flex-direction: column; gap: 14px; }
+        .p-item {
+            display: flex; align-items: flex-start; gap: 14px;
+            padding: 14px 16px;
+            border: 1px solid rgba(80,72,64,0.28);
+            transition: background var(--t), border-color var(--t);
+        }
+        .p-item:hover {
+            background: rgba(80,72,64,0.05);
+            border-color: rgba(80,72,64,0.5);
+        }
+        .p-diamond {
+            width: 7px; height: 7px;
+            border: 1px solid #5e5248;
+            transform: rotate(45deg);
+            flex-shrink: 0; margin-top: 5px;
+        }
+        .p-text { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+        /* Solution list */
+        .s-list { display: flex; flex-direction: column; gap: 14px; }
+        .s-item {
+            display: flex; align-items: flex-start; gap: 14px;
+            padding: 14px 16px;
+            border: 1px solid var(--gold-border);
+            background: var(--gold-dim);
+            transition: background var(--t), border-color var(--t);
+        }
+        .s-item:hover {
+            background: rgba(201,162,39,0.10);
+            border-color: var(--gold);
+        }
+        .s-diamond {
+            width: 7px; height: 7px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            flex-shrink: 0; margin-top: 5px;
+        }
+        .s-text { font-size: 13px; color: var(--text); line-height: 1.65; }
+
+        /* ═══════════════════════════════════════════════
+           4. HOW IT WORKS
+        ═══════════════════════════════════════════════ */
+        #how-it-works { background: var(--black-2); text-align: center; }
+        .mech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--gold-border);
+            margin-top: 60px;
+        }
+        .mech-card {
+            padding: 50px 38px; text-align: left;
+            border-right: 1px solid var(--gold-border);
+            background: var(--black-2);
+            transition: background var(--t);
+            position: relative; overflow: hidden;
+        }
+        .mech-card:last-child { border-right: none; }
+        .mech-card:hover { background: var(--black-3); }
+        .mech-card::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.4s var(--ease);
+            transform-origin: left;
+        }
+        .mech-card:hover::after { transform: scaleX(1); }
+        .mech-num {
+            font-family: var(--font-serif);
+            font-size: 72px; font-weight: 900;
+            color: rgba(201,162,39,0.07);
+            line-height: 1; margin-bottom: 20px;
+            letter-spacing: -3px; display: block;
+        }
+        .mech-icon {
+            width: 46px; height: 46px;
+            border: 1px solid var(--gold-border);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 18px;
+        }
+        .mech-title {
+            font-family: var(--font-serif);
+            font-size: 17px; font-weight: 700;
+            color: var(--gold); margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .mech-text { font-size: 13px; color: var(--text-muted); line-height: 1.85; }
+
+        /* ═══════════════════════════════════════════════
+           5. INGREDIENTS
+        ═══════════════════════════════════════════════ */
+        #ingredients { background: var(--black); }
+        .ing-header {
+            display: flex; justify-content: space-between;
+            align-items: flex-end; gap: 32px;
+            margin-bottom: 60px; flex-wrap: wrap;
+        }
+        .ing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--gold-border);
+        }
+        .ing-card {
+            padding: 40px 32px;
+            border-right: 1px solid var(--gold-border);
+            border-bottom: 1px solid var(--gold-border);
+            background: var(--black);
+            position: relative; overflow: hidden;
+            transition: background var(--t);
+        }
+        .ing-card:nth-child(3n) { border-right: none; }
+        .ing-card:nth-child(n+4) { border-bottom: none; }
+        .ing-card:hover { background: var(--black-2); }
+        .ing-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 2px; background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.4s var(--ease);
+            transform-origin: left;
+        }
+        .ing-card:hover::before { transform: scaleX(1); }
+        .ing-num {
+            font-family: var(--font-serif);
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 2px; color: var(--text-dim);
+            margin-bottom: 14px;
+        }
+        .ing-name {
+            font-family: var(--font-serif);
+            font-size: 17px; font-weight: 700;
+            color: var(--gold); margin-bottom: 6px; line-height: 1.2;
+        }
+        .ing-latin {
+            font-size: 11px; font-style: italic;
+            color: var(--text-dim); margin-bottom: 14px;
+        }
+        .ing-desc { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+        .ing-badge {
+            display: inline-block; margin-top: 14px;
+            font-size: 9px; font-weight: 700;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid var(--gold-border);
+            padding: 4px 10px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           6. LEGION — EMOTIONAL BLOCK
+        ═══════════════════════════════════════════════ */
+        #legion {
+            padding: 130px 0;
+            background: var(--black-2);
+            position: relative; overflow: hidden;
+        }
+        #legion::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,162,39,0.04) 0%, transparent 68%);
+            pointer-events: none;
+        }
+        .legion-inner {
+            text-align: center;
+            position: relative; z-index: 1;
+            max-width: 820px; margin: 0 auto;
+        }
+        .legion-spqr {
+            font-family: var(--font-serif);
+            font-size: 10px; letter-spacing: 10px;
+            text-transform: uppercase; color: var(--text-dim);
+            margin-bottom: 36px;
+        }
+        .legion-h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(34px, 5vw, 64px);
+            font-weight: 900; line-height: 1.05;
+            letter-spacing: 4px; text-transform: uppercase;
+            color: var(--white); margin-bottom: 0;
+        }
+        .legion-h2 em { font-style: normal; color: var(--gold); }
+        .legion-quote {
+            font-family: var(--font-serif);
+            font-size: clamp(15px, 1.9vw, 21px);
+            font-style: italic; color: var(--gold);
+            letter-spacing: 0.5px;
+            margin: 44px 0;
+            padding: 32px 52px;
+            border-top: 1px solid var(--gold-border);
+            border-bottom: 1px solid var(--gold-border);
+            position: relative;
+        }
+        .legion-quote::before {
+            content: '❝';
+            position: absolute; top: -13px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--black-2); padding: 0 14px;
+            font-size: 18px; color: var(--gold);
+        }
+        .legion-p {
+            font-size: 15px; font-weight: 300;
+            color: var(--text-muted); line-height: 1.95;
+            margin-bottom: 52px;
+        }
+        .legion-attrs {
+            display: flex; border: 1px solid var(--gold-border);
+        }
+        .l-attr {
+            flex: 1; padding: 24px 16px; text-align: center;
+            border-right: 1px solid var(--gold-border);
+            transition: background var(--t);
+        }
+        .l-attr:last-child { border-right: none; }
+        .l-attr:hover { background: var(--gold-dim); }
+        .l-attr-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+        .l-attr-label {
+            font-family: var(--font-serif);
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 2.5px; text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        /* ═══════════════════════════════════════════════
+           7. RESULTS & TRANSFORMATION
+        ═══════════════════════════════════════════════ */
+        #results { background: var(--black); }
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 70px; align-items: start;
+        }
+        /* Timeline */
+        .timeline { margin-top: 48px; }
+        .t-item {
+            display: flex; gap: 24px;
+            padding-bottom: 38px; position: relative;
+        }
+        .t-item:not(:last-child)::after {
+            content: '';
+            position: absolute; left: 19px; top: 42px; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--gold-border), transparent);
+        }
+        .t-dot {
+            width: 40px; height: 40px; flex-shrink: 0;
+            border: 1px solid var(--gold-border);
+            background: var(--black-2);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .t-dot-inner {
+            width: 8px; height: 8px;
+            background: var(--gold); transform: rotate(45deg);
+        }
+        .t-period {
+            font-family: var(--font-serif);
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 2.5px; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 5px;
+        }
+        .t-result {
+            font-family: var(--font-serif);
+            font-size: 16px; font-weight: 700;
+            color: var(--white); margin-bottom: 5px;
+        }
+        .t-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+        /* Stats quad */
+        .r-stats {
+            display: grid; grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--gold-border);
+        }
+        .r-stat {
+            padding: 38px 28px;
+            border-right: 1px solid var(--gold-border);
+            border-bottom: 1px solid var(--gold-border);
+            background: var(--black-2);
+            transition: background var(--t);
+        }
+        .r-stat:nth-child(2n) { border-right: none; }
+        .r-stat:nth-child(n+3) { border-bottom: none; }
+        .r-stat:hover { background: var(--black-3); }
+        .r-stat-n {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 3vw, 46px);
+            font-weight: 900; color: var(--gold);
+            line-height: 1; margin-bottom: 8px;
+        }
+        .r-stat-l { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+        .r-disclaimer {
+            border: 1px solid var(--gold-border); border-top: none;
+            background: var(--black-2); padding: 24px 28px;
+        }
+        .r-disclaimer p { font-size: 11px; color: var(--text-dim); line-height: 1.75; }
+
+        /* ═══════════════════════════════════════════════
+           8. TESTIMONIALS
+        ═══════════════════════════════════════════════ */
+        #testimonials { background: var(--black-2); }
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--gold-border);
+            margin-top: 60px;
+        }
+        .testi-card {
+            padding: 46px 34px;
+            border-right: 1px solid var(--gold-border);
+            background: var(--black-2);
+            transition: background var(--t);
+        }
+        .testi-card:last-child { border-right: none; }
+        .testi-card:hover { background: var(--black-3); }
+        .stars { display: flex; gap: 4px; margin-bottom: 24px; }
+        .star-diamond {
+            width: 10px; height: 10px;
+            background: var(--gold); transform: rotate(45deg);
+        }
+        .testi-text {
+            font-size: 13px; font-weight: 300; font-style: italic;
+            color: var(--text-muted); line-height: 1.95;
+            margin-bottom: 30px;
+            border-left: 2px solid var(--gold-border);
+            padding-left: 14px;
+        }
+        .testi-author { display: flex; align-items: center; gap: 14px; }
+        .testi-avatar {
+            width: 42px; height: 42px;
+            border: 1px solid var(--gold-border);
+            background: var(--black-4);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-serif);
+            font-size: 15px; font-weight: 700; color: var(--gold);
+            flex-shrink: 0;
+        }
+        .testi-name {
+            font-family: var(--font-serif);
+            font-size: 13px; font-weight: 700;
+            color: var(--white); margin-bottom: 2px;
+        }
+        .testi-meta { font-size: 11px; color: var(--text-dim); }
+        .verified {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 10px; letter-spacing: 0.5px; color: var(--gold);
+            margin-top: 16px;
+        }
+        .verified::before {
+            content: '✓';
+            width: 14px; height: 14px;
+            background: var(--gold); color: var(--black);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 9px; font-weight: 700;
+        }
+
+        /* ═══════════════════════════════════════════════
+           9. COMPARISON TABLE
+        ═══════════════════════════════════════════════ */
+        #comparison { background: var(--black); }
+        .comp-wrap { overflow-x: auto; margin-top: 60px; }
+        .comp-table {
+            width: 100%; border-collapse: collapse;
+            border: 1px solid var(--gold-border);
+            min-width: 600px;
+        }
+        .comp-table th, .comp-table td {
+            padding: 18px 22px;
+            border: 1px solid rgba(201,162,39,0.09);
+            text-align: center;
+        }
+        .comp-table th {
+            background: var(--black-2);
+            font-family: var(--font-serif);
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .comp-table th.hi {
+            background: rgba(201,162,39,0.07);
+            color: var(--gold);
+            border-color: var(--gold-border);
+        }
+        .comp-table td { font-size: 13px; color: var(--text-muted); background: var(--black); }
+        .comp-table td.feat { text-align: left; color: var(--text); font-weight: 500; }
+        .comp-table td.hi { background: rgba(201,162,39,0.04); color: var(--text); font-weight: 600; }
+        .comp-table tr:hover td { background: var(--black-2); }
+        .comp-table tr:hover td.hi { background: rgba(201,162,39,0.08); }
+        .c-yes { color: var(--gold); font-weight: 600; }
+        .c-no  { color: var(--text-dim); }
+
+        /* ═══════════════════════════════════════════════
+           10. GUARANTEE
+        ═══════════════════════════════════════════════ */
+        #guarantee { background: var(--black-2); }
+        .guar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--gold-border);
+            margin-top: 60px;
+        }
+        .guar-card {
+            padding: 50px 36px; text-align: center;
+            border-right: 1px solid var(--gold-border);
+            background: var(--black-2);
+            transition: background var(--t);
+        }
+        .guar-card:last-child { border-right: none; }
+        .guar-card:hover { background: var(--black-3); }
+        .guar-icon {
+            width: 60px; height: 60px;
+            border: 1px solid var(--gold-border);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 22px;
+        }
+        .guar-title {
+            font-family: var(--font-serif);
+            font-size: 17px; font-weight: 700;
+            color: var(--gold); margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .guar-text { font-size: 13px; color: var(--text-muted); line-height: 1.85; }
+
+        /* ═══════════════════════════════════════════════
+           11. FINAL OFFER (Pricing + Urgency)
+        ═══════════════════════════════════════════════ */
+        #offer { background: var(--black); position: relative; overflow: hidden; }
+        #offer::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse 55% 55% at 50% 50%, rgba(201,162,39,0.045) 0%, transparent 68%);
+            pointer-events: none;
+        }
+        .offer-inner { position: relative; z-index: 1; }
+        .offer-header { text-align: center; margin-bottom: 56px; }
+        /* Countdown */
+        .countdown {
+            display: flex; justify-content: center;
+            margin: 28px auto; max-width: 360px;
+            border: 1px solid var(--gold-border);
+        }
+        .cd-unit {
+            flex: 1; padding: 18px 8px; text-align: center;
+            border-right: 1px solid var(--gold-border);
+            background: var(--black-2);
+        }
+        .cd-unit:last-child { border-right: none; }
+        .cd-n {
+            display: block;
+            font-family: var(--font-serif);
+            font-size: 34px; font-weight: 900; color: var(--gold);
+            line-height: 1;
+        }
+        .cd-l {
+            display: block; font-size: 9px; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--text-dim); margin-top: 4px;
+        }
+        /* Stock bar */
+        .stock-wrap { max-width: 380px; margin: 0 auto 44px; }
+        .stock-head {
+            display: flex; justify-content: space-between;
+            font-size: 11px; color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .stock-head span:last-child { color: var(--gold); font-weight: 600; }
+        .stock-bar {
+            height: 3px; background: var(--black-3);
+            border: 1px solid var(--gold-border); overflow: hidden;
+        }
+        .stock-fill {
+            height: 100%; width: 22%;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+            animation: stockBlink 2.5s ease-in-out infinite;
+        }
+        @keyframes stockBlink {
+            0%,100% { opacity: 0.75; } 50% { opacity: 1; }
+        }
+        /* Packages */
+        .pkg-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--gold-border);
+        }
+        .pkg-card {
+            padding: 50px 32px; text-align: center;
+            background: var(--black);
+            border-right: 1px solid var(--gold-border);
+            position: relative;
+            transition: background var(--t);
+        }
+        .pkg-card:last-child { border-right: none; }
+        .pkg-card.featured {
+            background: var(--black-2);
+            border: 2px solid var(--gold);
+            margin: -1px;
+            z-index: 1;
+        }
+        .pkg-card:not(.featured):hover { background: var(--black-2); }
+        .pkg-badge {
+            position: absolute; top: -11px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold); color: var(--black);
+            font-family: var(--font-serif);
+            font-size: 9px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            padding: 5px 16px; white-space: nowrap;
+        }
+        .pkg-name {
+            font-family: var(--font-serif);
+            font-size: 12px; font-weight: 600;
+            letter-spacing: 4px; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: 6px;
+        }
+        .pkg-qty {
+            font-family: var(--font-serif);
+            font-size: 28px; font-weight: 900; color: var(--white);
+            margin-bottom: 4px;
+        }
+        .pkg-qty sub { font-size: 13px; font-weight: 400; color: var(--text-muted); }
+        .pkg-old { font-size: 13px; color: var(--text-dim); text-decoration: line-through; margin-bottom: 4px; }
+        .pkg-price {
+            font-family: var(--font-serif);
+            font-size: 38px; font-weight: 900; color: var(--gold);
+        }
+        .pkg-price sup { font-size: 18px; }
+        .pkg-per { font-size: 11px; color: var(--text-dim); margin-bottom: 28px; }
+        .pkg-feats { display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; text-align: left; }
+        .pkg-feat {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 12px; color: var(--text-muted);
+        }
+        .pkg-feat::before {
+            content: ''; width: 5px; height: 5px;
+            background: var(--gold); transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        /* ═══════════════════════════════════════════════
+           12. FAQ
+        ═══════════════════════════════════════════════ */
+        #faq { background: var(--black-2); }
+        .faq-list { margin-top: 60px; border: 1px solid var(--gold-border); }
+        .faq-item { border-bottom: 1px solid var(--gold-border); }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q {
+            width: 100%; background: none; border: none;
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 20px;
+            padding: 26px 36px;
+            cursor: pointer; text-align: left;
+            transition: background var(--t);
+        }
+        .faq-q:hover { background: var(--black-3); }
+        .faq-q.active { background: rgba(201,162,39,0.04); }
+        .faq-q-txt {
+            font-family: var(--font-serif);
+            font-size: 15px; font-weight: 600;
+            color: var(--white); line-height: 1.4;
+        }
+        .faq-ico {
+            width: 26px; height: 26px;
+            border: 1px solid var(--gold-border);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, background var(--t), border-color var(--t);
+        }
+        .faq-ico svg { width: 11px; height: 11px; stroke: var(--gold); fill: none; stroke-linecap: round; }
+        .faq-q.active .faq-ico {
+            transform: rotate(45deg);
+            background: var(--gold-dim); border-color: var(--gold);
+        }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease); }
+        .faq-a.open { max-height: 260px; }
+        .faq-a-inner {
+            padding: 0 36px 26px;
+            font-size: 13px; color: var(--text-muted); line-height: 1.9;
+        }
+
+        /* ═══════════════════════════════════════════════
+           13. FOOTER
+        ═══════════════════════════════════════════════ */
+        footer {
+            background: var(--black);
+            border-top: 1px solid var(--gold-border);
+            padding: 64px 0 32px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px; margin-bottom: 48px;
+        }
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 26px; font-weight: 900;
+            letter-spacing: 7px; color: var(--gold);
+            margin-bottom: 6px;
+        }
+        .footer-tagline {
+            font-family: var(--font-serif);
+            font-size: 9px; letter-spacing: 4px;
+            color: var(--text-dim); margin-bottom: 18px;
+        }
+        .footer-desc {
+            font-size: 12px; color: var(--text-dim);
+            line-height: 1.85; max-width: 300px;
+        }
+        .footer-col-title {
+            font-family: var(--font-serif);
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 20px;
+        }
+        .footer-links { display: flex; flex-direction: column; gap: 10px; }
+        .footer-links a { font-size: 12px; color: var(--text-dim); transition: color var(--t); }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 28px;
+            border-top: 1px solid rgba(201,162,39,0.08);
+            gap: 20px; flex-wrap: wrap;
+        }
+        .footer-copy { font-size: 11px; color: var(--text-dim); }
+        .footer-legal { font-size: 10px; color: var(--text-dim); max-width: 580px; text-align: right; line-height: 1.7; }
+
+        /* ═══════════════════════════════════════════════
+           MODAL — ORDER FORM
+        ═══════════════════════════════════════════════ */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 2000;
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            backdrop-filter: blur(12px);
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal {
+            background: var(--black-2);
+            border: 1px solid var(--gold-border);
+            width: 100%; max-width: 510px;
+            padding: 52px 46px;
+            position: relative;
+            transform: translateY(16px);
+            transition: transform 0.4s var(--ease);
+        }
+        .modal-overlay.active .modal { transform: translateY(0); }
+        .modal-close {
+            position: absolute; top: 18px; right: 18px;
+            width: 34px; height: 34px;
+            border: 1px solid var(--gold-border);
+            background: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background var(--t), border-color var(--t);
+        }
+        .modal-close:hover { background: var(--gold-dim); border-color: var(--gold); }
+        .modal-close svg { width: 12px; height: 12px; stroke: var(--gold); fill: none; stroke-linecap: round; }
+        .modal-tag {
+            font-family: var(--font-serif);
+            font-size: 9px; font-weight: 600;
+            letter-spacing: 3.5px; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 10px;
+        }
+        .modal-title {
+            font-family: var(--font-serif);
+            font-size: 26px; font-weight: 900;
+            color: var(--white); margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        .modal-subtitle {
+            font-size: 13px; color: var(--text-muted);
+            line-height: 1.75; margin-bottom: 34px;
+        }
+        .form-group { margin-bottom: 18px; }
+        .form-label {
+            display: block;
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: 7px;
+        }
+        .form-input, .form-select {
+            width: 100%;
+            background: var(--black); color: var(--text);
+            font-family: var(--font-sans); font-size: 14px;
+            padding: 13px 16px;
+            border: 1px solid var(--gold-border); outline: none;
+            transition: border-color var(--t);
+        }
+        .form-input:focus, .form-select:focus { border-color: var(--gold); }
+        .form-input::placeholder { color: var(--text-dim); }
+        .form-select {
+            cursor: pointer; appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23C9A227' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+        .form-consent { display: flex; align-items: flex-start; gap: 10px; margin: 18px 0 26px; }
+        .form-cb {
+            width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px;
+            border: 1px solid var(--gold-border); background: var(--black);
+            appearance: none; cursor: pointer; transition: background var(--t);
+        }
+        .form-cb:checked { background: var(--gold); }
+        .consent-txt { font-size: 11px; color: var(--text-dim); line-height: 1.6; }
+        .consent-txt a { color: var(--gold); text-decoration: underline; }
+        /* Success state */
+        .form-success { display: none; text-align: center; padding: 32px 0; }
+        .form-success.show { display: block; }
+        .success-icon {
+            width: 60px; height: 60px;
+            border: 1px solid var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 22px; color: var(--gold);
+        }
+        .success-h { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 10px; }
+        .success-p { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+
+        /* ═══════════════════════════════════════════════
+           RESPONSIVE — TABLET (≤1024px)
+        ═══════════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+            .hero-visual { order: -1; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .ps-grid { grid-template-columns: 1fr; }
+            .ps-col.solution { border-left: none; border-top: 1px solid var(--gold-border); }
+            .mech-grid { grid-template-columns: 1fr; }
+            .mech-card { border-right: none; border-bottom: 1px solid var(--gold-border); }
+            .mech-card:last-child { border-bottom: none; }
+            .ing-grid { grid-template-columns: repeat(2, 1fr); }
+            .ing-card:nth-child(3n) { border-right: 1px solid var(--gold-border); }
+            .ing-card:nth-child(2n) { border-right: none; }
+            .ing-card:nth-child(n+4) { border-bottom: none; }
+            .ing-card:nth-child(n+5) { border-bottom: none; }
+            .results-grid { grid-template-columns: 1fr; gap: 50px; }
+            .testi-grid { grid-template-columns: 1fr; }
+            .testi-card { border-right: none; border-bottom: 1px solid var(--gold-border); }
+            .testi-card:last-child { border-bottom: none; }
+            .guar-grid { grid-template-columns: 1fr; }
+            .guar-card { border-right: none; border-bottom: 1px solid var(--gold-border); }
+            .guar-card:last-child { border-bottom: none; }
+            .pkg-grid { grid-template-columns: 1fr; }
+            .pkg-card { border-right: none; border-bottom: 1px solid var(--gold-border); }
+            .pkg-card:last-child { border-bottom: none; }
+            .pkg-card.featured { margin: 0; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+
+        /* ═══════════════════════════════════════════════
+           RESPONSIVE — MOBILE (≤768px)
+        ═══════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .section { padding: 64px 0; }
+            .header-nav, .header-cta { display: none; }
+            .hamburger { display: flex; }
+            /* Hero centered on mobile */
+            .hero-grid { text-align: center; }
+            .hero-eyebrow, .hero-trust-row { justify-content: center; }
+            .hero-desc {
+                border-left: none; padding-left: 0;
+                margin-left: auto; margin-right: auto;
+                border-top: 1px solid var(--gold-border); padding-top: 18px;
+            }
+            .hero-actions { justify-content: center; }
+            .p-box { width: 240px; height: 184px; }
+            .p-main-name { font-size: 44px; }
+            .ps-col { padding: 44px 24px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .ing-grid { grid-template-columns: 1fr; }
+            .ing-card { border-right: none !important; }
+            .ing-header { flex-direction: column; align-items: flex-start; }
+            .r-stats { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-legal { text-align: center; max-width: 100%; }
+            .legion-attrs { flex-direction: column; }
+            .l-attr { border-right: none !important; border-bottom: 1px solid var(--gold-border); }
+            .l-attr:last-child { border-bottom: none; }
+            .modal { padding: 40px 24px; }
+            .faq-q { padding: 22px 20px; }
+            .faq-a-inner { padding: 0 20px 22px; }
+            .legion-quote { padding: 24px 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-headline { font-size: 42px; letter-spacing: 4px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .r-stats { grid-template-columns: 1fr; }
+            .r-stat:nth-child(n+3) { border-bottom: 1px solid var(--gold-border); }
+            .r-stat:last-child { border-bottom: none; }
+            .countdown { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Scroll progress ── -->
+<div id="scroll-progress"></div>
+
+<!-- ── Mobile nav overlay ── -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+<nav class="mobile-nav" id="mobileNav">
+    <a href="#how-it-works" onclick="closeMobileNav()">Как работает</a>
+    <a href="#ingredients"  onclick="closeMobileNav()">Состав</a>
+    <a href="#results"      onclick="closeMobileNav()">Результаты</a>
+    <a href="#testimonials" onclick="closeMobileNav()">Отзывы</a>
+    <a href="#guarantee"    onclick="closeMobileNav()">Гарантия</a>
+    <a href="#faq"          onclick="closeMobileNav()">FAQ</a>
+    <button class="btn-primary" onclick="closeMobileNav(); openModal();">Заказать сейчас</button>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+<header class="header" id="siteHeader">
+    <div class="container">
+        <div class="header-inner">
+            <a href="#" class="header-logo">
+                OPTIMAN
+                <span>VENI · VIDI · VICI</span>
+            </a>
+            <nav class="header-nav">
+                <a href="#how-it-works">Как работает</a>
+                <a href="#ingredients">Состав</a>
+                <a href="#results">Результаты</a>
+                <a href="#testimonials">Отзывы</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <button class="header-cta" onclick="openModal()">Заказать</button>
+            <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ════════════════════════════════════════════
+     1. HERO
+════════════════════════════════════════════ -->
+<section id="hero">
+    <div class="container">
+        <div class="hero-grid">
+
+            <!-- Text column -->
+            <div class="reveal-left">
+                <div class="hero-eyebrow">
+                    <span class="hero-eyebrow-line"></span>
+                    <span class="hero-eyebrow-text">Sildex Premium · 350 мг / капсула</span>
+                </div>
+
+                <h1 class="hero-headline">
+                    VENI.
+                    <span class="accent">VIDI.</span>
+                    VICI.
+                </h1>
+                <p class="hero-subheadline">Пришёл · Увидел · Победил</p>
+
+                <p class="hero-desc">
+                    OPTIMAN — это не таблетка. Это формула. Шесть концентрированных экстрактов, 
+                    синергия которых была выверена так же тщательно, как стратегия легиона 
+                    перед решающей битвой.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="openModal()">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 1.5l1.6 3.2 3.5.7-2.5 2.4 1.2 3.7-3.8-2-3.8 2 1.2-3.7-2.5-2.4 3.5-.7z"/></svg>
+                        Получить OPTIMAN
+                    </button>
+                    <a href="#how-it-works" class="btn-secondary">Узнать больше</a>
+                </div>
+
+                <div class="hero-trust-row">
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="#C9A227" stroke-width="1.4"><path d="M7.5 1.5l1.5 3 3.5.7-2.5 2.3 1 3.5L7.5 9.2 4 11l1-3.5L2.5 5.2l3.5-.7z"/></svg>
+                        </div>
+                        <span class="trust-text">Предельно концентророванный<br>состав</span>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="#C9A227" stroke-width="1.4"><rect x="2" y="7" width="11" height="6" rx="1"/><path d="M5 7V5a2.5 2.5 0 015 0v2"/></svg>
+                        </div>
+                        <span class="trust-text">Безопасен<br>и легален</span>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="#C9A227" stroke-width="1.4"><circle cx="7.5" cy="7.5" r="5.5"/><path d="M7.5 4.5v3l2 2"/></svg>
+                        </div>
+                        <span class="trust-text">Моментальный эффект</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product visual column -->
+            <div class="hero-visual reveal-right">
+                <div class="product-glow"></div>
+                <div class="product-wrap">
+                    <!-- CSS product box mimicking the actual packaging -->
+                    <div class="p-box">
+                        <div class="p-box-spine"></div>
+                        <div class="p-top-row">
+                            <span class="p-brand-label">OPTIMAN · PREMIUM</span>
+                            <div class="p-sildex-circle">
+                                <span class="p-sildex-s">S</span>
+                                <span class="p-sildex-word">sildex</span>
+                            </div>
+                        </div>
+                        <div class="p-main-name">OPTIMAN</div>
+                        <div class="p-motto">VENI, VIDI, VICI...</div>
+                        <div class="p-bottom-row">
+                            <span class="p-mgm">350 мг</span>
+                            <span class="p-caps">10 капсул</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     2. SOCIAL PROOF — STATS
+════════════════════════════════════════════ -->
+<section id="social-proof">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-cell reveal" data-delay="1">
+                <span class="stat-num" data-count="77000" data-suffix="+">0</span>
+                <span class="stat-lbl">Мужчин выбрали OPTIMAN</span>
+            </div>
+            <div class="stat-cell reveal" data-delay="2">
+                <span class="stat-num" data-count="97" data-suffix="%">0</span>
+                <span class="stat-lbl">Отмечают эффект</span>
+            </div>
+            <div class="stat-cell reveal" data-delay="3">
+                <span class="stat-num" data-count="6" data-suffix=" лет">0</span>
+                <span class="stat-lbl">Работы формулы</span>
+            </div>
+            <div class="stat-cell reveal" data-delay="4">
+                <span class="stat-num" data-count="30" data-suffix=" дн">0</span>
+                <span class="stat-lbl">Гарантия возврата</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     3. PROBLEM → SOLUTION
+════════════════════════════════════════════ -->
+<section id="problem-solution" class="section">
+    <div class="container">
+        <div class="reveal" style="margin-bottom:48px;">
+            <span class="section-tag">Честный разговор</span>
+            <h2 class="section-title">Тело начинает<br><span>сдавать позиции.</span><br>Это не приговор.</h2>
+        </div>
+
+        <div class="ps-grid reveal">
+            <div class="ps-col problem">
+                <div class="col-eyebrow problem">Знакомо?</div>
+                <h3 class="col-title">Что происходит, когда мужчина перестаёт контролировать своё тело</h3>
+                <div class="p-list">
+                    <div class="p-item">
+                        <div class="p-diamond"></div>
+                        <p class="p-text">Снижение либидо и влечения — то, что раньше было естественным, теперь требует усилий</p>
+                    </div>
+                    <div class="p-item">
+                        <div class="p-diamond"></div>
+                        <p class="p-text">Усталость, упадок сил , снижение физической и ментальной выносливости</p>
+                    </div>
+                    <div class="p-item">
+                        <div class="p-diamond"></div>
+                        <p class="p-text">Потеря уверенности, ощущения собственной силы и контроля над ситуацией</p>
+                    </div>
+                    <div class="p-item">
+                        <div class="p-diamond"></div>
+                        <p class="p-text">Снижение уровня тестостерона </p>
+                    </div>
+                    <div class="p-item">
+                        <div class="p-diamond"></div>
+                        <p class="p-text">Расстроенная  или имитирующая дама </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ps-col solution">
+                <div class="col-eyebrow solution">OPTIMAN отвечает</div>
+                <h3 class="col-title">Формула, созданная для мужчин, которые не сдаются и побеждают</h3>
+                <div class="s-list">
+                    <div class="s-item">
+                        <div class="s-diamond"></div>
+                        <p class="s-text">Восстановление тонуса и либидо через мощь  концентрированных экстрактов</p>
+                    </div>
+                    <div class="s-item">
+                        <div class="s-diamond"></div>
+                        <p class="s-text">Синтез АТФ - гормона энергии , ощущение силы и выносливость марафонца  </p>
+                    </div>
+                    <div class="s-item">
+                        <div class="s-diamond"></div>
+                        <p class="s-text">Безусловная уверенность , спокойный контроль над головой и телом</p>
+                    </div>
+                    <div class="s-item">
+                        <div class="s-diamond"></div>
+                        <p class="s-text">Предельно высокий уровень тестостерона</p>
+                    </div>
+                    <div class="s-item">
+                        <div class="s-diamond"></div>
+                        <p class="s-text">Женский восторг </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     4. HOW IT WORKS
+════════════════════════════════════════════ -->
+<section id="how-it-works" class="section">
+    <div class="container">
+        <div class="reveal" style="text-align:center;">
+            <span class="section-tag">Механизм действия</span>
+            <h2 class="section-title">Три уровня работы <span>OPTIMAN</span></h2>
+            <p class="section-subtitle" style="margin:0 auto;">Последовательная стратегия легиона</p>
+        </div>
+
+        <div class="mech-grid">
+            <div class="mech-card reveal" data-delay="1">
+                <span class="mech-num">01</span>
+                <div class="mech-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C9A227" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l2.5 2.5"/></svg>
+                </div>
+                <div class="mech-title">Активация кровотока</div>
+                <p class="mech-text">Горянка Эпидемиум в связке с женшенем вызывают синтез оксида азота, расширяя сосуды и обеспечивая скоростное кровообращение. Эффект стимулирует эррекцию. Чувствуешь первый прилив сил и энергии.</p>
+            </div>
+
+            <div class="mech-card reveal" data-delay="2">
+                <span class="mech-num">02</span>
+                <div class="mech-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C9A227" stroke-width="1.5"><path d="M10 2l2 4 4.5 1-3.2 3 1.2 4.5L10 12.5 5.5 14.5 6.7 10 3.5 7l4.5-1z"/></svg>
+                </div>
+                <div class="mech-title">Выработка тестостерон</div>
+                <p class="mech-text">Эврикома и кордицепс активируют мощную выработку тестостерона, улучшают физическую и ментальную выносливость. Также блокируют кортизол и ароматбазу , снижая стресс и тревогу. Чувствуешь уверенность и контроль.</p>
+            </div>
+
+            <div class="mech-card reveal" data-delay="3">
+                <span class="mech-num">03</span>
+                <div class="mech-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C9A227" stroke-width="1.5"><path d="M4 10h12M10 4v12"/><circle cx="10" cy="10" r="3"/></svg>
+                </div>
+                <div class="mech-title">Накопительный эффект</div>
+                <p class="mech-text">Мака перуанская и эврикома , существенно повышают либидо и обеспечивают концентрацию семян в едином ядре, задерживая семяизвержение и улучшая качество спермы. Чувствуешь страсное сексуальное желание. </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     5. INGREDIENTS
+════════════════════════════════════════════ -->
+<section id="ingredients" class="section">
+    <div class="container">
+        <div class="ing-header reveal">
+            <div>
+                <span class="section-tag">Состав</span>
+                <h2 class="section-title">6 компонентов<br><span>легендарной формулы</span></h2>
+            </div>
+            <p class="section-subtitle">Каждый ингредиент отобран по стандартам биодоступности и концентрации. 350 мг — это не случайная цифра.</p>
+        </div>
+
+        <div class="ing-grid">
+            <div class="ing-card reveal" data-delay="1">
+                <div class="ing-num">/ 01</div>
+                <div class="ing-name">Эврикома (тонгкат али)</div>
+                <div class="ing-latin">Eurycoma longifolia </div>
+                <p class="ing-desc">Один из самых сильных природных бустеров тестостерона. Клинически доказанно повышает уровень общего и свободного тестостерона, снижает уровень глобулина, связывающего половые гормоны (ГСПГ). Сильно повышает либидо, качество эрекции и фертильность.</p>
+                <span class="ing-badge">Экстракт 200:1 </span>
+            </div>
+            <div class="ing-card reveal" data-delay="2">
+                <div class="ing-num">/ 02</div>
+                <div class="ing-name">Кордицепс китайский</div>
+                <div class="ing-latin">Cordyceps sinensis (мицелий)</div>
+                <p class="ing-desc">Очень мощный природный адаптоген. Значительно повышает выработку тестостерона и свободного тестостерона, увеличивает синтез АТФ, повышает физическую выносливость и сексуальную энергию. Улучшает работу надпочечников и общую жизненную силу.</p>
+                <span class="ing-badge">Экстракт мицелия 30:1</span>
+            </div>
+            <div class="ing-card reveal" data-delay="3">
+                <div class="ing-num">/ 03</div>
+                <div class="ing-name">Мака Перуанская</div>
+                <div class="ing-latin">Lepidium meyenii</div>
+                <p class="ing-desc">«Андский женьшень». Усиливает сексуальное влечение и физическую выносливость, нормализует гормональный баланс. Стимулирует либидо.Один из самых популярных компонентов для повышения . Применяется мужчинами Анд тысячелетиями.</p>
+                <span class="ing-badge">Экстракт 10:1</span>
+            </div>
+            <div class="ing-card reveal" data-delay="4">
+                <div class="ing-num">/ 04</div>
+                <div class="ing-name">Горянка (Эпимедиум)</div>
+                <div class="ing-latin">Epimedium sagittatum</div>
+                <p class="ing-desc">Содержит икариин — природный ингибитор ФДЭ-5, механизм действия которого сопоставим с известными препаратами. Стимулирует приток крови , ощущение силы и выносливость.</p>
+                <span class="ing-badge">Icariin 10%</span>
+            </div>
+            <div class="ing-card reveal" data-delay="5">
+                <div class="ing-num">/ 05</div>
+                <div class="ing-name">Женьшень обыкновенный</div>
+                <div class="ing-latin">Panax ginseng</div>
+                <p class="ing-desc">Элитный экстракт корня. Улучшает микроциркуляцию крови, включая кровоснабжение половых органов, повышает уровень дофамина и оксида азота. Сильно усиливает яркость ощущений, выносливость и восстановление после близости.</p>
+                <span class="ing-badge">Фармацевтическая чистота</span>
+            </div>
+            <div class="ing-card reveal" data-delay="5">
+                <div class="ing-num">/ 06</div>
+                <div class="ing-name">Мальтодекстрин</div>
+                <div class="ing-latin">Maltodextrin</div>
+                <p class="ing-desc">Представляет собой белый порошок, используемый в пищевой промышленности как загуститель, подсластитель и источник энергии. Популярная добавка в детском питании, спортивных гейнерах. Мы тоже не обошли её стороной.</p>
+                <span class="ing-badge">Вкусовая составляющая</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     6. LEGION — EMOTIONAL BLOCK
+════════════════════════════════════════════ -->
+<section id="legion">
+    <div class="container">
+        <div class="legion-inner">
+            <p class="legion-spqr reveal">S·P·Q·R · Senatus Populusque Romanus</p>
+
+            <h2 class="legion-h2 reveal">
+                Легион не знал<br>слова <em>«сдаться»</em>
+            </h2>
+
+            <blockquote class="legion-quote reveal">
+                Настоящий мужчина не ищет оправданий. Он ищет путь к победе.
+            </blockquote>
+
+            <p class="legion-p reveal">
+                Римский легионер выходил в бой не потому что не чувствовал страха. Он выходил — потому что был готов. 
+                Физически, ментально, гормонально. OPTIMAN создан для тех, кто понимает: 
+                сила — это не дар судьбы. Это результат правильного подхода к своему телу. 
+                Каждый день. Без компромиссов.
+            </p>
+
+            <div class="legion-attrs reveal">
+                <div class="l-attr">
+                    <span class="l-attr-icon">⚔</span>
+                    <div class="l-attr-label">Сила</div>
+                </div>
+                <div class="l-attr">
+                    <span class="l-attr-icon">🛡</span>
+                    <div class="l-attr-label">Контроль</div>
+                </div>
+                <div class="l-attr">
+                    <span class="l-attr-icon">🔥</span>
+                    <div class="l-attr-label">Страсть</div>
+                </div>
+                <div class="l-attr">
+                    <span class="l-attr-icon">👑</span>
+                    <div class="l-attr-label">Статус</div>
+                </div>
+                <div class="l-attr">
+                    <span class="l-attr-icon">⚡</span>
+                    <div class="l-attr-label">Энергия</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     7. RESULTS & TRANSFORMATION
+════════════════════════════════════════════ -->
+<section id="results" class="section">
+    <div class="container">
+        <div class="results-grid">
+
+            <div class="reveal-left">
+                <span class="section-tag">Трансформация</span>
+                <h2 class="section-title">Что происходит<br>с <span>вашим телом</span></h2>
+                <div class="gold-line"></div>
+                <p class="section-subtitle">Подытожив результаты</p>
+
+                <div class="timeline">
+                    <div class="t-item">
+                        <div class="t-dot"><div class="t-dot-inner"></div></div>
+                        <div>
+                            <div class="t-period">Внушительный</div>
+                            <div class="t-result">Первый прилив энергии</div>
+                            <p class="t-desc">Активация кровотока, снижение усталости. Первое ощущение силы с утра.</p>
+                        </div>
+                    </div>
+                    <div class="t-item">
+                        <div class="t-dot"><div class="t-dot-inner"></div></div>
+                        <div>
+                            <div class="t-period">Долгий</div>
+                            <div class="t-result">Возвращение тонуса и влечения</div>
+                            <p class="t-desc">Заметный рост либидо, улучшение настроения и качества сна.</p>
+                        </div>
+                    </div>
+                    <div class="t-item">
+                        <div class="t-dot"><div class="t-dot-inner"></div></div>
+                        <div>
+                            <div class="t-period">Яркий</div>
+                            <div class="t-result">Стабильный гормональный баланс</div>
+                            <p class="t-desc">Устойчивая поддержка тестостерона, рост физической выносливости.</p>
+                        </div>
+                    </div>
+                    <div class="t-item">
+                        <div class="t-dot"><div class="t-dot-inner"></div></div>
+                        <div>
+                            <div class="t-period">Постоянный</div>
+                            <div class="t-result">Накопительный долгосрочный эффект</div>
+                            <p class="t-desc">Уверенность и сила, которые остаются после курса.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal-right">
+                <div class="r-stats">
+                    <div class="r-stat">
+                        <div class="r-stat-n">+68%</div>
+                        <p class="r-stat-l">Потребителей возвращаються , чтобы купить optiman снова</p>
+                    </div>
+                    <div class="r-stat">
+                        <div class="r-stat-n">5</div>
+                        <p class="r-stat-l">Количество стран , в которых мужчины уже пользуються формулой</p>
+                    </div>
+                    <div class="r-stat">
+                        <div class="r-stat-n">+45%</div>
+                        <p class="r-stat-l">Сообщают о существенной разнице в уровне уровне естественной выработке тестостерона</p>
+                    </div>
+                    <div class="r-stat">
+                        <div class="r-stat-n">97%</div>
+                        <p class="r-stat-l">Покупателей остаются довольны качеством</p>
+                    </div>
+                </div>
+                <div class="r-disclaimer">
+                    <p>* Данные по результатам анкетирования покупателей. Индивидуальные результаты могут отличаться. OPTIMAN — БАД, не является лекарственным средством.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     8. TESTIMONIALS
+════════════════════════════════════════════ -->
+<section id="testimonials" class="section">
+    <div class="container">
+        <div class="reveal" style="text-align:center;">
+            <span class="section-tag">Голоса Легиона</span>
+            <h2 class="section-title">Мужчины, которые <span>уже победили</span></h2>
+            <div class="gold-line center"></div>
+        </div>
+
+        <div class="testi-grid">
+            <div class="testi-card reveal" data-delay="1">
+                <div class="stars">
+                    <div class="star-diamond"></div><div class="star-diamond"></div>
+                    <div class="star-diamond"></div><div class="star-diamond"></div>
+                    <div class="star-diamond"></div>
+                </div>
+                <p class="testi-text">
+                    «Мне 44 года. Последние два года чувствовал себя как выжатый лимон — физически и в отношениях. Когда принял OPTIMAN ощущение, что мне снова 30. Это не преувеличение.»
+                </p>
+                <div class="testi-author">
+                    <div class="testi-avatar">А</div>
+                    <div>
+                        <div class="testi-name">Ерлан К.</div>
+                        <div class="testi-meta">44 года · Астана</div>
+                    </div>
+                </div>
+                <div class="verified">Подтверждённая покупка</div>
+            </div>
+
+            <div class="testi-card reveal" data-delay="2">
+                <div class="stars">
+                    <div class="star-diamond"></div><div class="star-diamond"></div>
+                    <div class="star-diamond"></div><div class="star-diamond"></div>
+                    <div class="star-diamond"></div>
+                </div>
+                <p class="testi-text">
+                    «Пробовал разные средства — большинство это красивые упаковки с эффектом плацебо. OPTIMAN другой. Состав серьёзный. Через 10 дней жена спросила, что со мной случилось. В хорошем смысле.»
+                </p>
+                <div class="testi-author">
+                    <div class="testi-avatar">Д</div>
+                    <div>
+                        <div class="testi-name">Дмитрий В.</div>
+                        <div class="testi-meta">38 лет · Алматы</div>
+                    </div>
+                </div>
+                <div class="verified">Подтверждённая покупка</div>
+            </div>
+
+            <div class="testi-card reveal" data-delay="3">
+                <div class="stars">
+                    <div class="star-diamond"></div><div class="star-diamond"></div>
+                    <div class="star-diamond"></div><div class="star-diamond"></div>
+                    <div class="star-diamond"></div>
+                </div>
+                <p class="testi-text">
+                    «Скептически относился к БАДам. Решился из-за состава — с профессиональной точки зрения всё сделано правильно. Попробовал. Почувствовал разницу. Это теперь часть моего режима.»
+                </p>
+                <div class="testi-author">
+                    <div class="testi-avatar">С</div>
+                    <div>
+                        <div class="testi-name">Димаш М.</div>
+                        <div class="testi-meta">51 год · Павлодар</div>
+                    </div>
+                </div>
+                <div class="verified">Подтверждённая покупка</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     9. COMPARISON
+════════════════════════════════════════════ -->
+<section id="comparison" class="section">
+    <div class="container">
+        <div class="reveal" style="text-align:center; margin-bottom:8px;">
+            <span class="section-tag">Сравнение</span>
+            <h2 class="section-title">OPTIMAN vs <span>всё остальное</span></h2>
+            <p class="section-subtitle" style="margin:0 auto 40px;">Мы не боимся сравнений — потому что они в нашу пользу</p>
+        </div>
+
+        <div class="comp-wrap reveal">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th style="text-align:left; min-width:200px;">Критерий</th>
+                        <th class="hi">OPTIMAN</th>
+                        <th>Дешёвые аналоги</th>
+                        <th>Аптечные БАД</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feat">Концентрация экстрактов</td>
+                        <td class="hi c-yes">350 мг / капсула</td>
+                        <td class="c-no">50–100 мг</td>
+                        <td class="c-no">Стандарт. дозировка</td>
+                    </tr>
+                    <tr>
+                        <td class="feat">Синергия 6 компонентов</td>
+                        <td class="hi c-yes">✓ Научная формула</td>
+                        <td class="c-no">✗ 1–2 компонента</td>
+                        <td class="c-no">Частично</td>
+                    </tr>
+                    <tr>
+                        <td class="feat">Эврикома длиннолистая Фиста</td>
+                        <td class="hi c-yes">✓ Компонент Сертифицирован</td>
+                        <td class="c-no">✗ Нет</td>
+                        <td class="c-no">✗ Нет</td>
+                    </tr>
+                    <tr>
+                        <td class="feat">Эффект</td>
+                        <td class="hi c-yes">Мощный</td>
+                        <td class="c-no">Едва ощутимый</td>
+                        <td class="c-no">Мощный</td>
+                    </tr>
+                    <tr>
+                        <td class="feat">Побочные эффекты</td>
+                        <td class="hi c-yes">Никаких</td>
+                        <td>Постоянная практика</td>
+                        <td class="c-yes">Имеются противопоказания </td>
+                    </tr>
+                    <tr>
+                        <td class="feat">Гарантия возврата</td>
+                        <td class="hi c-yes">✓ 30 дней</td>
+                        <td class="c-no">✗ Нет</td>
+                        <td class="c-no">✗ Нет</td>
+                    </tr>
+                    <tr>
+                        <td class="feat">Премиальное позиционирование</td>
+                        <td class="hi c-yes">✓ Dark Luxury</td>
+                        <td class="c-no">✗ Масс-маркет</td>
+                        <td class="c-no">Стандарт</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     10. GUARANTEE
+════════════════════════════════════════════ -->
+<section id="guarantee" class="section">
+    <div class="container">
+        <div class="reveal" style="text-align:center;">
+            <span class="section-tag">Наша уверенность</span>
+            <h2 class="section-title">Мы настолько уверены<br>в <span>OPTIMAN</span>,<br>что несём риски сами</h2>
+            <div class="gold-line center"></div>
+        </div>
+
+        <div class="guar-grid">
+            <div class="guar-card reveal" data-delay="1">
+                <div class="guar-icon">🤝</div>
+                <div class="guar-title">30 дней — полный возврат</div>
+                <p class="guar-text">
+                    Если в течение 30 дней вы не почувствуете результата — мы вернём 100% стоимости без вопросов и объяснений. Один звонок. Одна заявка.
+                </p>
+            </div>
+            <div class="guar-card reveal" data-delay="2">
+                <div class="guar-icon">✅</div>
+                <div class="guar-title">Сертифицированный состав</div>
+                <p class="guar-text">
+                    Производство соответствует стандартам GMP. Каждая партия проходит контроль качества. Сырьё сертифицировано независимыми лабораториями.
+                </p>
+            </div>
+            <div class="guar-card reveal" data-delay="3">
+                <div class="guar-icon">🔒</div>
+                <div class="guar-title">Безопасность и конфиденциальность</div>
+                <p class="guar-text">
+                    Доставка в нейтральной упаковке без маркировки содержимого. Ваши данные не передаются третьим лицам. Полная конфиденциальность заказа.
+                </p>
+            </div>
+        </div>
+
+        <!-- ── Guarantee statement ── -->
+        <div class="ornament-divider reveal">
+            <span class="ornament-symbol">✦ ✦ ✦</span>
+        </div>
+
+        <div class="reveal" style="
+            border: 1px solid var(--gold-border);
+            background: var(--black-3);
+            padding: 44px 52px;
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+        ">
+            <p style="
+                font-family: var(--font-serif);
+                font-size: clamp(15px, 1.8vw, 19px);
+                color: var(--gold);
+                line-height: 1.75;
+                font-style: italic;
+                margin-bottom: 18px;
+            ">
+                «Легион никогда не уходил без победы. OPTIMAN действует по тому же принципу.»
+            </p>
+            <p style="font-size: 12px; color: var(--text-dim); letter-spacing: 1.5px; text-transform: uppercase; font-family: var(--font-serif);">
+                — Команда Sildex
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     11. FINAL OFFER — PRICING + URGENCY
+════════════════════════════════════════════ -->
+<section id="offer" class="section">
+    <div class="container">
+        <div class="offer-inner">
+
+            <!-- Header -->
+            <div class="offer-header reveal">
+                <span class="section-tag">Специальное предложение</span>
+                <h2 class="section-title">Выберите свой <span>курс OPTIMAN</span></h2>
+                <p class="section-subtitle" style="margin: 0 auto 28px;">
+                    Специальные цены действуют ограниченное время. После окончания акции — стандартный прайс.
+                </p>
+
+                <!-- Countdown timer -->
+                <div class="countdown" id="countdown">
+                    <div class="cd-unit">
+                        <span class="cd-n" id="cd-h">00</span>
+                        <span class="cd-l">Часов</span>
+                    </div>
+                    <div class="cd-unit">
+                        <span class="cd-n" id="cd-m">00</span>
+                        <span class="cd-l">Минут</span>
+                    </div>
+                    <div class="cd-unit">
+                        <span class="cd-n" id="cd-s">00</span>
+                        <span class="cd-l">Секунд</span>
+                    </div>
+                </div>
+
+                <!-- Stock bar -->
+                <div class="stock-wrap">
+                    <div class="stock-head">
+                        <span>Осталось на складе</span>
+                        <span>⚠ Мало</span>
+                    </div>
+                    <div class="stock-bar">
+                        <div class="stock-fill"></div>
+                    </div>
+                    <p style="font-size:11px; color: var(--text-dim); margin-top:6px; text-align:right;">
+                        Доступно: <strong style="color:var(--gold)">17 упаковок</strong> из 80
+                    </p>
+                </div>
+            </div>
+
+            <!-- Packages grid -->
+            <div class="pkg-grid reveal">
+
+                <!-- Package 1: Start -->
+                <div class="pkg-card">
+                    <div class="pkg-name">Старт</div>
+                    <div class="pkg-qty">1 <sub>упаковка</sub></div>
+                    <div class="pkg-old">29 900₸</div>
+                    <div class="pkg-price"><sup>₸</sup>18 990</div>
+                    <p class="pkg-per">10 капсул </p>
+                    <div class="pkg-feats">
+                        <div class="pkg-feat">10 капсул OPTIMAN 350 мг</div>
+                        <div class="pkg-feat">Инструкция по приёму</div>
+                        <div class="pkg-feat">Доставка 24 часа</div>
+                        <div class="pkg-feat">Гарантия 30 дней</div>
+                        <div class="pkg-feat">Техническая поддержка</div>
+                    </div>
+                    <button class="btn-secondary" style="width:100%; justify-content:center;"
+                        onclick="openModal('Старт — 1 упаковка')">
+                        Выбрать
+                    </button>
+                </div>
+
+                <!-- Package 2: Legion (FEATURED) -->
+                <div class="pkg-card featured">
+                    <div class="pkg-badge">Хит продаж</div>
+                    <div class="pkg-name">Легион</div>
+                    <div class="pkg-qty">3 <sub>упаковки</sub></div>
+                    <div class="pkg-old">79 900₸</div>
+                    <div class="pkg-price"><sup>₸</sup>49 990</div>
+                    <p class="pkg-per">30 капсул </p>
+                    <div class="pkg-feats">
+                        <div class="pkg-feat">3 упаковки OPTIMAN</div>
+                        <div class="pkg-feat">Экономия</div>
+                        <div class="pkg-feat">Приоритетная доставка</div>
+                        <div class="pkg-feat">Гарантия 30 дней</div>
+                        <div class="pkg-feat">Персональная консультация</div>
+                    </div>
+                    <button class="btn-primary" style="width:100%; justify-content:center;"
+                        onclick="openModal('Легион — 3 упаковки')">
+                        Получить формулу
+                    </button>
+                </div>
+
+                <!-- Package 3: Imperator -->
+                <div class="pkg-card">
+                    <div class="pkg-name">Император</div>
+                    <div class="pkg-qty">6 <sub>упаковок</sub></div>
+                    <div class="pkg-old">149 900 ₸</div>
+                    <div class="pkg-price"><sup>₸</sup>99 990</div>
+                    <p class="pkg-per">60 капсул </p>
+                    <div class="pkg-feats">
+                        <div class="pkg-feat">6 упаковок OPTIMAN</div>
+                        <div class="pkg-feat">Экономия </div>
+                        <div class="pkg-feat">Бесплатная доставка</div>
+                        <div class="pkg-feat">Гарантия 30 дней</div>
+                        <div class="pkg-feat">VIP-поддержка куратора</div>
+                      
+                    </div>
+                    <button class="btn-secondary" style="width:100%; justify-content:center;"
+                        onclick="openModal('Император — 6 упаковок')">
+                        Выбрать
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Trust strip under pricing -->
+            <div class="reveal" style="
+                display: flex; justify-content: center;
+                gap: 40px; flex-wrap: wrap;
+                margin-top: 36px;
+                padding: 24px 28px;
+                border: 1px solid var(--gold-border);
+                background: var(--black-2);
+            ">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="color:var(--gold); font-size:16px;">🔒</span>
+                    <span style="font-size:11px; color:var(--text-muted); letter-spacing:0.5px;">Безопасная оплата</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="color:var(--gold); font-size:16px;">📦</span>
+                    <span style="font-size:11px; color:var(--text-muted); letter-spacing:0.5px;">Нейтральная упаковка</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="color:var(--gold); font-size:16px;">↩</span>
+                    <span style="font-size:11px; color:var(--text-muted); letter-spacing:0.5px;">Возврат 30 дней</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="color:var(--gold); font-size:16px;">🚚</span>
+                    <span style="font-size:11px; color:var(--text-muted); letter-spacing:0.5px;">Доставка по всему Казахстану</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="color:var(--gold); font-size:16px;">☎</span>
+                    <span style="font-size:11px; color:var(--text-muted); letter-spacing:0.5px;">Поддержка 24/7</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     12. FAQ
+════════════════════════════════════════════ -->
+<section id="faq" class="section">
+    <div class="container">
+        <div class="reveal" style="text-align:center; margin-bottom:8px;">
+            <span class="section-tag">Часто задают</span>
+            <h2 class="section-title">Ответы на <span>главные вопросы</span></h2>
+        </div>
+
+        <div class="faq-list reveal">
+
+            <div class="faq-item">
+                <button class="faq-q">
+                    <span class="faq-q-txt">OPTIMAN — это лекарство или БАД? Нужен ли рецепт?</span>
+                    <span class="faq-ico">
+                        <svg viewBox="0 0 11 11"><line x1="5.5" y1="1" x2="5.5" y2="10"/><line x1="1" y1="5.5" x2="10" y2="5.5"/></svg>
+                    </span>
+                </button>
+                <div class="faq-a">
+                    <p class="faq-a-inner">
+                        OPTIMAN является биологически активной добавкой (БАД) к пище. Это не лекарственный препарат, поэтому рецепт для покупки не требуется. Продукт сертифицирован и соответствует требованиям технического регламента ТР ТС 021/2011.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q">
+                    <span class="faq-q-txt">Когда я почувствую первый эффект?</span>
+                    <span class="faq-ico">
+                        <svg viewBox="0 0 11 11"><line x1="5.5" y1="1" x2="5.5" y2="10"/><line x1="1" y1="5.5" x2="10" y2="5.5"/></svg>
+                    </span>
+                </button>
+                <div class="faq-a">
+                    <p class="faq-a-inner">
+                        В течении получаса. Большинство мужчин отмечают первые изменения после приёма как : рост энергии, улучшение настроения, повышение либидо. Скорость зависит от индивидуальных особенностей организма.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q">
+                    <span class="faq-q-txt">Есть ли побочные эффекты?</span>
+                    <span class="faq-ico">
+                        <svg viewBox="0 0 11 11"><line x1="5.5" y1="1" x2="5.5" y2="10"/><line x1="1" y1="5.5" x2="10" y2="5.5"/></svg>
+                    </span>
+                </button>
+                <div class="faq-a">
+                    <p class="faq-a-inner">
+                     При соблюдении рекомендованной дозировки побочные эффекты крайне редки. Если у вас есть хронические заболевания , аллергия или вы принимаете медикаменты — рекомендуем предварительно проконсультироваться с врачом.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q">
+                    <span class="faq-q-txt">Как правильно принимать OPTIMAN?</span>
+                    <span class="faq-ico">
+                        <svg viewBox="0 0 11 11"><line x1="5.5" y1="1" x2="5.5" y2="10"/><line x1="1" y1="5.5" x2="10" y2="5.5"/></svg>
+                    </span>
+                </button>
+                <div class="faq-a">
+                    <p class="faq-a-inner">
+                        1 капсула за полчаса до близости. Подробная инструкция на русском и казахском вложена в каждую упаковку.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q">
+                    <span class="faq-q-txt">Как работает гарантия возврата?</span>
+                    <span class="faq-ico">
+                        <svg viewBox="0 0 11 11"><line x1="5.5" y1="1" x2="5.5" y2="10"/><line x1="1" y1="5.5" x2="10" y2="5.5"/></svg>
+                    </span>
+                </button>
+                <div class="faq-a">
+                    <p class="faq-a-inner">
+                        В течение 30 дней с момента получения заказа вы можете вернуть продукт по любой причине. Достаточно написать или позвонить в нашу службу поддержки. Деньги возвращаются в течение 3–5 рабочих дней на карту или счёт, с которого была произведена оплата. Никаких лишних вопросов.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q">
+                    <span class="faq-q-txt">Как быстро придёт заказ и в какой упаковке?</span>
+                    <span class="faq-ico">
+                        <svg viewBox="0 0 11 11"><line x1="5.5" y1="1" x2="5.5" y2="10"/><line x1="1" y1="5.5" x2="10" y2="5.5"/></svg>
+                    </span>
+                </button>
+                <div class="faq-a">
+                    <p class="faq-a-inner">
+                        Доставка по Казахстану занимает от 8 до 24 часов в зависимости от региона. Отправка производится сразу   после подтверждения заказа. Упаковка — нейтральная, без брендинга и указания содержимого снаружи. Полная конфиденциальность гарантирована.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q">
+                    <span class="faq-q-txt">Можно ли совмещать с алкоголем или другими добавками?</span>
+                    <span class="faq-ico">
+                        <svg viewBox="0 0 11 11"><line x1="5.5" y1="1" x2="5.5" y2="10"/><line x1="1" y1="5.5" x2="10" y2="5.5"/></svg>
+                    </span>
+                </button>
+                <div class="faq-a">
+                    <p class="faq-a-inner">
+                        Умеренное употребление алкоголя не критично, однако злоупотребление снижает эффективность любых нутрицевтических комплексов. OPTIMAN хорошо сочетается с большинством спортивных добавок (протеин, BCAA, витаминные комплексы). Рекомендуем соблюдать перерыв 1–2 часа между приёмами разных добавок.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     13. FOOTER
+════════════════════════════════════════════ -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+
+            <!-- Brand col -->
+            <div>
+                <div class="footer-brand">OPTIMAN</div>
+                <div class="footer-tagline">VENI · VIDI · VICI · SILDEX</div>
+                <p class="footer-desc">
+                    Премиальный комплекс для мужской силы и выносливости. 
+                    Научно выверенная формула с концентрацией 350 мг активных 
+                    экстрактов в каждой капсуле. Sildex — стандарт качества.
+                </p>
+                <div style="margin-top:22px; display:flex; gap:10px;">
+                    <a href="#" style="
+                        width:36px; height:36px;
+                        border:1px solid var(--gold-border);
+                        display:flex; align-items:center; justify-content:center;
+                        font-size:14px; color:var(--gold);
+                        transition: background 0.3s, border-color 0.3s;
+                    " onmouseover="this.style.background='var(--gold-dim)'; this.style.borderColor='var(--gold)'"
+                       onmouseout="this.style.background=''; this.style.borderColor='var(--gold-border)'">t</a>
+                    <a href="#" style="
+                        width:36px; height:36px;
+                        border:1px solid var(--gold-border);
+                        display:flex; align-items:center; justify-content:center;
+                        font-size:14px; color:var(--gold);
+                        transition: background 0.3s, border-color 0.3s;
+                    " onmouseover="this.style.background='var(--gold-dim)'; this.style.borderColor='var(--gold)'"
+                       onmouseout="this.style.background=''; this.style.borderColor='var(--gold-border)'">vk</a>
+                </div>
+            </div>
+
+            <!-- Links col -->
+            <div>
+                <div class="footer-col-title">Навигация</div>
+                <div class="footer-links">
+                    <a href="#how-it-works">Как работает</a>
+                    <a href="#ingredients">Состав и ингредиенты</a>
+                    <a href="#results">Результаты курса</a>
+                    <a href="#testimonials">Отзывы покупателей</a>
+                    <a href="#comparison">Сравнение</a>
+                    <a href="#guarantee">Гарантия</a>
+                    <a href="#offer">Заказать</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+            </div>
+
+            <!-- Info col -->
+            <div>
+                <div class="footer-col-title">Информация</div>
+                <div class="footer-links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Договор оферты</a>
+                    <a href="#">Условия доставки</a>
+                    <a href="#">Возврат товара</a>
+                    <a href="#">Контакты</a>
+                </div>
+                <div style="margin-top:28px;">
+                    <div class="footer-col-title" style="margin-bottom:10px;">Поддержка</div>
+                    <a href="tel:+78001234567" style="
+                        font-family: var(--font-serif);
+                        font-size:16px; color:var(--gold);
+                        display:block; margin-bottom:6px;
+                        transition:opacity 0.3s;
+                    " onmouseover="this.style.opacity='0.75'"
+                       onmouseout="this.style.opacity='1'">
+                        + 7 775 142 66 74
+                    </a>
+                    <p style="font-size:11px; color:var(--text-dim);">Бесплатно · Ежедневно 09:00–21:00</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <div class="footer-copy">
+                © 2024 Sildex. Все права защищены.
+            </div>
+            <div class="footer-legal">
+                БАД. Не является лекарственным средством. Перед применением рекомендуется консультация специалиста.
+                Свидетельство о государственной регистрации № RU.77.01.03.003.E.002345.05.24.
+                Противопоказано при индивидуальной непереносимости компонентов.
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ════════════════════════════════════════════
+     MODAL — ORDER FORM
+════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+        <button class="modal-close" onclick="closeModal()" aria-label="Закрыть">
+            <svg viewBox="0 0 12 12"><line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/></svg>
+        </button>
+
+        <!-- Form view -->
+        <div id="formView">
+            <div class="modal-tag">Оформление заказа</div>
+            <h2 class="modal-title" id="modalTitle">OPTIMAN</h2>
+            <p class="modal-subtitle" id="modalPackageLabel">
+                Введите данные для оформления заказа. Менеджер свяжется с вами в течение 15 минут.
+            </p>
+
+            <form id="orderForm" novalidate>
+                <div class="form-group">
+                    <label class="form-label" for="inp-name">Ваше имя *</label>
+                    <input
+                        class="form-input"
+                        id="inp-name"
+                        type="text"
+                        placeholder="Димаш"
+                        required
+                        autocomplete="given-name"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="inp-phone">Телефон *</label>
+                    <input
+                        class="form-input"
+                        id="inp-phone"
+                        type="tel"
+                        placeholder="+7 (___) ___-__-__"
+                        required
+                        autocomplete="tel"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="inp-pkg">Выбранный пакет</label>
+                    <select class="form-input form-select" id="inp-pkg">
+                        <option value="start">Старт — 1 упаковка · 18 990₸</option>
+                        <option value="legion" selected>Легион — 3 упаковки · 49 900₸ (Хит)</option>
+                        <option value="imperator">Император — 6 упаковок · 99 900₸</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="inp-city">Город доставки</label>
+                    <input
+                        class="form-input"
+                        id="inp-city"
+                        type="text"
+                        placeholder="Алматы"
+                        autocomplete="address-level2"
+                    >
+                </div>
+
+                <div class="form-consent">
+                    <input type="checkbox" class="form-cb" id="consent-cb" required>
+                    <label class="consent-txt" for="consent-cb">
+                        Нажимая «Оформить заказ», я соглашаюсь с
+                        <a href="#">политикой конфиденциальности</a> и
+                        <a href="#">условиями оферты</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width:100%; justify-content:center; font-size:11px; padding:18px;">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 1l1.8 3.6L13 5.2l-3 2.9 1.4 4.1L7 10.2 2.6 12.2 4 8.1 1 5.2l4.2-.6z"/></svg>
+                    Оформить заказ
+                </button>
+
+                <!-- Error message -->
+                <p id="form-error" style="
+                    display:none; margin-top:12px; text-align:center;
+                    font-size:12px; color:#c0392b;
+                ">Заполните все обязательные поля</p>
+            </form>
+        </div>
+
+        <!-- Success view (hidden by default) -->
+        <div class="form-success" id="successView">
+            <div class="success-icon">✓</div>
+            <div class="success-h">Заказ принят!</div>
+            <p class="success-p">
+                Ваша заявка успешно отправлена.<br>
+                Менеджер свяжется с вами в течение <strong style="color:var(--gold)">15 минут</strong>
+                для подтверждения заказа и уточнения деталей доставки.
+            </p>
+            <p style="margin-top:16px; font-size:11px; color:var(--text-dim);">
+                Сохраните номер заявки: <strong style="color:var(--gold)" id="orderNum">#OP-0000</strong>
+            </p>
+            <button class="btn-primary" style="margin-top:28px; width:100%; justify-content:center;"
+                onclick="closeModal()">
+                Закрыть
+            </button>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+/* ─────────────────────────────────────────────
+   1. SCROLL PROGRESS BAR
+───────────────────────────────────────────── */
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrollTop    = window.scrollY;
+    const docHeight    = document.documentElement.scrollHeight - window.innerHeight;
+    const progress     = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+}, { passive: true });
+
+
+/* ─────────────────────────────────────────────
+   2. STICKY HEADER
+───────────────────────────────────────────── */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+
+/* ─────────────────────────────────────────────
+   3. MOBILE NAV
+───────────────────────────────────────────── */
+const hamburger      = document.getElementById('hamburger');
+const mobileNav      = document.getElementById('mobileNav');
+const mobileOverlay  = document.getElementById('mobileOverlay');
+
+function toggleMobileNav() {
+    const isOpen = mobileNav.classList.toggle('open');
+    mobileOverlay.classList.toggle('open', isOpen);
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+
+/* ─────────────────────────────────────────────
+   4. INTERSECTION OBSERVER — SCROLL REVEAL
+───────────────────────────────────────────── */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+revealEls.forEach(el => revealObserver.observe(el));
+
+
+/* ─────────────────────────────────────────────
+   5. COUNTER ANIMATION
+───────────────────────────────────────────── */
+const counterEls = document.querySelectorAll('.stat-num[data-count]');
+
+/**
+ * Format large numbers with spaces: 47000 → "47 000"
+ */
+function formatCount(num) {
+    return num >= 1000
+        ? Math.floor(num).toLocaleString('ru-RU').replace(',', ' ')
+        : Math.floor(num).toString();
+}
+
+function animateCounter(el) {
+    const target   = parseInt(el.dataset.count, 10);
+    const suffix   = el.dataset.suffix || '';
+    const duration = 1800; // ms
+    const start    = performance.now();
+
+    function step(now) {
+        const elapsed  = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease-out cubic
+        const eased    = 1 - Math.pow(1 - progress, 3);
+        const current  = Math.round(eased * target);
+
+        el.textContent = formatCount(current) + suffix;
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            el.textContent = formatCount(target) + suffix;
+        }
+    }
+    requestAnimationFrame(step);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+counterEls.forEach(el => counterObserver.observe(el));
+
+
+/* ─────────────────────────────────────────────
+   6. COUNTDOWN TIMER (persists in sessionStorage)
+───────────────────────────────────────────── */
+(function initCountdown() {
+    const KEY        = 'optiman_offer_end';
+    const DURATION   = (5 * 60 + 47) * 60 * 1000; // 5h 47m in ms
+    let endTime      = parseInt(sessionStorage.getItem(KEY), 10);
+
+    if (!endTime || isNaN(endTime) || endTime < Date.now()) {
+        endTime = Date.now() + DURATION;
+        sessionStorage.setItem(KEY, endTime);
+    }
+
+    const cdH = document.getElementById('cd-h');
+    const cdM = document.getElementById('cd-m');
+    const cdS = document.getElementById('cd-s');
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+        const remaining = Math.max(0, endTime - Date.now());
+        const totalSec  = Math.floor(remaining / 1000);
+        const h         = Math.floor(totalSec / 3600);
+        const m         = Math.floor((totalSec % 3600) / 60);
+        const s         = totalSec % 60;
+
+        if (cdH) cdH.textContent = pad(h);
+        if (cdM) cdM.textContent = pad(m);
+        if (cdS) cdS.textContent = pad(s);
+
+        if (remaining > 0) {
+            setTimeout(tick, 1000);
+        }
+    }
+    tick();
+})();
+
+
+/* ─────────────────────────────────────────────
+   7. FAQ ACCORDION
+───────────────────────────────────────────── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const answer    = btn.nextElementSibling;   // .faq-a
+        const isOpen    = btn.classList.contains('active');
+
+        // Close all open items
+        document.querySelectorAll('.faq-q.active').forEach(openBtn => {
+            openBtn.classList.remove('active');
+            openBtn.nextElementSibling.classList.remove('open');
+        });
+
+        // Open clicked item (unless it was already open)
+        if (!isOpen) {
+            btn.classList.add('active');
+            answer.classList.add('open');
+        }
+    });
+});
+
+
+/* ─────────────────────────────────────────────
+   8. MODAL — OPEN / CLOSE
+───────────────────────────────────────────── */
+const modalOverlayEl   = document.getElementById('modalOverlay');
+const formView         = document.getElementById('formView');
+const successView      = document.getElementById('successView');
+const pkgSelect        = document.getElementById('inp-pkg');
+const modalPackageLbl  = document.getElementById('modalPackageLabel');
+
+/**
+ * @param {string} [pkgLabel] — Optional package name pre-selects the dropdown
+ */
+function openModal(pkgLabel) {
+    // Reset to form state
+    formView.style.display    = '';
+    successView.classList.remove('show');
+    document.getElementById('form-error').style.display = 'none';
+
+    // Pre-select package if provided
+    if (pkgLabel) {
+        if (pkgLabel.includes('Легион'))    pkgSelect.value = 'legion';
+        else if (pkgLabel.includes('Импер')) pkgSelect.value = 'imperator';
+        else                                 pkgSelect.value = 'start';
+
+        const labels = {
+            legion:     'Легион — 3 упаковки · Полный курс 30 дней · 4 990 ₽',
+            imperator:  'Император — 6 упаковок · Максимальный курс · 8 490 ₽',
+            start:      'Старт — 1 упаковка · 10 дней · 1 990 ₽',
+        };
+        modalPackageLbl.textContent = labels[pkgSelect.value] || 'Оформление заказа';
+    }
+
+    modalOverlayEl.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Focus first input after animation
+    setTimeout(() => {
+        document.getElementById('inp-name').focus();
+    }, 420);
+}
+
+function closeModal() {
+    modalOverlayEl.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+    if (e.target === modalOverlayEl) closeModal();
+}
+
+// Close on Escape key
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+});
+
+
+/* ─────────────────────────────────────────────
+   9. PHONE MASK
+───────────────────────────────────────────── */
+(function initPhoneMask() {
+    const phoneInput = document.getElementById('inp-phone');
+    if (!phoneInput) return;
+
+    phoneInput.addEventListener('input', function(e) {
+        let digits = this.value.replace(/\D/g, '');
+
+        // Normalize leading 8 → 7
+        if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+        if (!digits.startsWith('7') && digits.length > 0) digits = '7' + digits;
+
+        // Clamp to 11 digits
+        digits = digits.slice(0, 11);
+
+        // Format: +7 (XXX) XXX-XX-XX
+        let formatted = '';
+        if (digits.length >= 1)  formatted  = '+7';
+        if (digits.length >= 2)  formatted += ' (' + digits.slice(1, 4);
+        if (digits.length >= 5)  formatted += ') ' + digits.slice(4, 7);
+        if (digits.length >= 8)  formatted += '-'  + digits.slice(7, 9);
+        if (digits.length >= 10) formatted += '-'  + digits.slice(9, 11);
+
+        // If partially filled show placeholder hint
+        if (digits.length === 1) formatted = '+7 (';
+
+        this.value = formatted;
+    });
+
+    // Handle backspace gracefully
+    phoneInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Backspace' && this.value.length <= 4) {
+            e.preventDefault();
+            this.value = '';
+        }
+    });
+})();
+
+
+/* ─────────────────────────────────────────────
+   10. FORM SUBMISSION
+───────────────────────────────────────────── */
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name     = document.getElementById('inp-name').value.trim();
+    const phone    = document.getElementById('inp-phone').value.trim();
+    const consent  = document.getElementById('consent-cb').checked;
+    const errorEl  = document.getElementById('form-error');
+
+    // Basic validation
+    if (!name || phone.replace(/\D/g, '').length < 11 || !consent) {
+        errorEl.style.display = 'block';
+        errorEl.textContent   = !consent
+            ? 'Необходимо согласие с условиями'
+            : 'Заполните имя и номер телефона';
+        return;
+    }
+
+    errorEl.style.display = 'none';
+
+    // Generate order number
+    const orderNum = '#OP-' + String(Math.floor(1000 + Math.random() * 9000));
+    document.getElementById('orderNum').textContent = orderNum;
+
+    // Simulate async request (replace with real fetch/axios call)
+    const submitBtn = this.querySelector('button[type="submit"]');
+    submitBtn.textContent = 'Отправка...';
+    submitBtn.disabled    = true;
+
+    setTimeout(() => {
+        // Show success state
+        formView.style.display = 'none';
+        successView.classList.add('show');
+
+        // Reset form for next use
+        this.reset();
+        submitBtn.textContent = 'Оформить заказ';
+        submitBtn.disabled    = false;
+    }, 1200);
+});
+
+
+/* ─────────────────────────────────────────────
+   11. SMOOTH ANCHOR SCROLLING
+───────────────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId  = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        e.preventDefault();
+        const offset = 85; // header height
+        const top    = target.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({ top, behavior: 'smooth' });
+    });
+});
+
+
+/* ─────────────────────────────────────────────
+   12. STAGGERED GRID ANIMATIONS
+   Adds incremental delays to card children
+───────────────────────────────────────────── */
+function staggerGrid(gridSelector, childSelector) {
+    const grids = document.querySelectorAll(gridSelector);
+    grids.forEach(grid => {
+        const children = grid.querySelectorAll(childSelector);
+        children.forEach((child, i) => {
+            child.style.transitionDelay = (i * 0.08) + 's';
+        });
+    });
+}
+
+// Apply stagger to ingredient and testimonial cards
+staggerGrid('.ing-grid',   '.ing-card');
+staggerGrid('.testi-grid', '.testi-card');
+staggerGrid('.mech-grid',  '.mech-card');
+
+
+/* ─────────────────────────────────────────────
+   13. PACKAGE SELECT → UPDATE MODAL SUBTITLE
+───────────────────────────────────────────── */
+pkgSelect && pkgSelect.addEventListener('change', function() {
+    const labels = {
+        start:      'Старт — 1 упаковка · 10 дней · 1 990 ₽',
+        legion:     'Легион — 3 упаковки · Полный курс 30 дней · 4 990 ₽',
+        imperator:  'Император — 6 упаковок · Максимальный курс · 8 490 ₽',
+    };
+    if (modalPackageLbl) {
+        modalPackageLbl.textContent = labels[this.value] || '';
+    }
+});
+
+
+/* ─────────────────────────────────────────────
+   14. HERO PARALLAX (subtle, performance-safe)
+───────────────────────────────────────────── */
+(function initParallax() {
+    const hero = document.getElementById('hero');
+    const wrap = hero && hero.querySelector('.product-wrap');
+    if (!wrap) return;
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                if (scrollY < window.innerHeight) {
+                    wrap.style.transform =
+                        `translateY(${scrollY * 0.06}px) rotate(-1deg)`;
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+})();
+
+</script>
+
+</body>
+</html>

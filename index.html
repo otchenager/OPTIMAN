@@ -2819,10 +2819,11 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
 
     const name     = document.getElementById('inp-name').value.trim();
     const phone    = document.getElementById('inp-phone').value.trim();
+    const pkg      = document.getElementById('inp-pkg').options[document.getElementById('inp-pkg').selectedIndex].text;
+    const city     = document.getElementById('inp-city').value.trim();
     const consent  = document.getElementById('consent-cb').checked;
     const errorEl  = document.getElementById('form-error');
 
-    // Basic validation
     if (!name || phone.replace(/\D/g, '').length < 11 || !consent) {
         errorEl.style.display = 'block';
         errorEl.textContent   = !consent
@@ -2833,28 +2834,32 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
 
     errorEl.style.display = 'none';
 
-    // Generate order number
     const orderNum = '#OP-' + String(Math.floor(1000 + Math.random() * 9000));
     document.getElementById('orderNum').textContent = orderNum;
 
-    // Simulate async request (replace with real fetch/axios call)
     const submitBtn = this.querySelector('button[type="submit"]');
     submitBtn.textContent = 'Отправка...';
     submitBtn.disabled    = true;
 
-    setTimeout(() => {
-        // Show success state
+    // Отправка в Telegram
+    const TOKEN   = '8737411458:AAFabk33P9Aj6PsnK-ZyTHhO7eJNJs9sP68';
+    const CHAT_ID = '6952754290';
+
+    const message = `🛒 Новая заявка ${orderNum}!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📦 Пакет: ${pkg}\n🏙 Город: ${city || 'не указан'}`;
+
+    fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+    })
+    .finally(() => {
         formView.style.display = 'none';
         successView.classList.add('show');
-
-        // Reset form for next use
         this.reset();
         submitBtn.textContent = 'Оформить заказ';
         submitBtn.disabled    = false;
-    }, 1200);
+    });
 });
-
-
 /* ─────────────────────────────────────────────
    11. SMOOTH ANCHOR SCROLLING
 ───────────────────────────────────────────── */

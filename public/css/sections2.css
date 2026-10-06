@@ -15,6 +15,8 @@
 .tier__body{display:flex;flex-direction:column;flex:1;padding:22px 24px 0}
 .tier__name{font-family:var(--f-latin);font-weight:600;font-size:15px;letter-spacing:.26em;color:var(--gold-hi);text-transform:uppercase}
 .tier__name .cyr{font-family:var(--f-head);font-size:1.5em;letter-spacing:.06em;text-transform:none}
+.tier__title{margin-top:4px;font-size:34px;line-height:1.1}
+.tier.is-picked{border-color:var(--gold)}
 .tier__caption{margin-top:6px;font-family:var(--f-head);font-style:italic;font-size:19px;color:var(--text)}
 .tier__comp{margin-top:6px;font-size:12.5px;letter-spacing:.06em;color:var(--muted)}
 .tier__prices{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
@@ -183,3 +185,7 @@ select.input option{background:var(--surface);color:var(--text)}
 .result__icon .ico{width:32px;height:32px}
 .result__text{margin:14px auto 0;max-width:420px;color:var(--muted);font-size:15.5px}
 .result__actions{display:grid;gap:10px;margin-top:28px}
+.result__retry{justify-self:center;margin-top:6px;padding:6px 0;border-top:0;border-left:0;border-right:0}
+.tpick__list{display:grid;gap:10px}
+.city-other .input{margin-top:8px}
+.footer__about{margin-top:18px;max-width:260px}

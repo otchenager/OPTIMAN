@@ -202,6 +202,7 @@
   modal.addEventListener('click', function (e) {
     if (e.target.closest('[data-close]')) { e.preventDefault(); close(); }
     if (e.target.closest('[data-retry]')) { e.preventDefault(); show('form'); }
+    if (e.target.closest('[data-wa-success],[data-wa-error]')) OP.track('click_whatsapp', { place: 'form' });
   });
   d.addEventListener('keydown', function (e) {
     if (modal.hidden) return;

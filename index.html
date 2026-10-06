@@ -80,27 +80,518 @@
   <symbol id="i-diamond" viewBox="0 0 24 24"><path d="M12 3l5 9-5 9-5-9z" fill="currentColor" stroke="none"/></symbol>
 </svg>
 
-<div class="topbar" id="topbar"><!--@topbar--></div>
-<header class="header" id="header"><!--@header--></header>
+<div class="topbar" id="topbar">
+  <p class="topbar__in"><span>Доставка по всему Казахстану</span><i aria-hidden="true">·</i><span><b>Алматы</b> — в день заказа</span><i class="t-3-sep" aria-hidden="true">·</i><span class="t-3">Оплата Kaspi или при получении</span></p>
+</div>
+<header class="header" id="header">
+  <div class="container header__in">
+    <a class="header__logo" href="#hero" aria-label="OPTIMAN — на главную">
+      <img src="/public/brand/logo-horizontal.svg" alt="OPTIMAN · VENI VIDI VICI" width="134" height="40">
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#formula">Формула</a>
+      <a href="#course">Курс</a>
+      <a href="#guarantee">Гарантия</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="header__actions">
+      <a class="icon-btn" href="https://wa.me/77751426674" data-wa="Здравствуйте! Хочу узнать про OPTIMAN" data-place="header" aria-label="Написать в WhatsApp">
+        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+      </a>
+      <a class="btn btn--gold btn--sm" href="#pricing" data-scroll-tier="legion">Заказать</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Мобильное меню" hidden>
+    <a class="mnav__link" href="#formula"><small>II</small>Формула</a>
+    <a class="mnav__link" href="#course"><small>III</small>Курс</a>
+    <a class="mnav__link" href="#guarantee"><small>VII</small>Гарантия</a>
+    <a class="mnav__link" href="#faq"><small>IX</small>Вопросы</a>
+    <div class="mnav__contacts">
+      <a class="mnav__phone" href="tel:+77751426674" data-tel>+7 775 142 66 74</a>
+      <a class="btn btn--ghost btn--block" href="https://wa.me/77751426674" data-wa="Здравствуйте! Хочу узнать про OPTIMAN" data-place="menu"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Написать в WhatsApp</a>
+      <a class="btn btn--gold btn--block" href="#pricing" data-scroll-tier="legion">Заказать</a>
+    </div>
+  </nav>
+</header>
 
 <main id="main">
-<section class="hero" id="hero"><!--@hero--></section>
-<section class="trust" id="trust"><!--@trust--></section>
-<section class="section problem" id="problem"><!--@problem--></section>
-<section class="section section--alt formula" id="formula"><!--@formula--></section>
-<section class="section course" id="course"><!--@course--></section>
-<section class="section legion" id="legion"><!--@legion--></section>
-<section class="section section--alt reviews" id="reviews" hidden><!--@reviews--></section>
-<section class="section pricing" id="pricing"><!--@pricing--></section>
-<section class="section guarantee" id="guarantee"><!--@guarantee--></section>
-<section class="section section--alt delivery" id="delivery"><!--@delivery--></section>
-<section class="section faq" id="faq"><!--@faq--></section>
-<section class="section final" id="final"><!--@final--></section>
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="container hero__grid">
+    <div class="hero__visual">
+      <div class="pack3d-stage" id="pack3d" aria-label="Упаковка OPTIMAN, 10 капсул по 350 мг" role="img">
+        <div class="pack3d-shadow"></div>
+        <div class="pack3d">
+          <div class="face f-front">
+            <svg class="sildex" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#CDB9A0" stroke-width="1.1"/>
+              <g fill="none" stroke="#B48C66" stroke-width="2.2">
+                <ellipse cx="50" cy="37" rx="11" ry="12"/>
+                <ellipse cx="50" cy="62" rx="13" ry="14"/>
+              </g>
+              <path d="M2 50 H20 M80 50 H98" stroke="#CDB9A0" stroke-width="1.1"/>
+              <rect x="21" y="40" width="58" height="19" fill="#1b1819"/>
+              <text x="50" y="55.5" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="700" font-size="17" fill="#E9DED0" letter-spacing="-.3">sildex</text>
+            </svg>
+            <div class="brand gold">OPTIMAN</div>
+            <div class="motto gold">VENI, VIDI, VICI...</div>
+            <div class="dose">350 <small>мг</small></div>
+            <div class="count">10 <small>капсул</small></div>
+            <div class="sheen"></div>
+          </div>
+          <div class="face f-back">
+            <div class="label">
+              <div class="t gold">OPTIMAN</div>
+              <b>Состав:</b> экстракт горянки стрелолистной, экстракт мицелия кордицепса китайского, экстракт корня эврикомы длиннолистной, экстракт корня женьшеня обыкновенного, порошок корня маки, мальтодекстрин, оболочка капсулы (ГПМЦ).<br>
+              <b>Применение:</b> взрослым по 1 капсуле в день во время еды. Курс — 1 месяц.<br>
+              <b>Производитель:</b> PHYTES BIOTEK SDN. BHD, Малайзия. <b>Импортёр:</b> ТОО «РЕСУРС РК», Алматы.<br>
+              БАД. Не является лекарством.
+            </div>
+            <div class="sheen"></div>
+          </div>
+          <div class="face f-top"><div class="spine"><span class="gold">OPTIMAN</span><small>10 капсул</small></div></div>
+          <div class="face f-bottom"><div class="spine"><span class="gold" style="font-size:.6em">VENI · VIDI · VICI</span></div></div>
+          <div class="face f-right"><div class="spine"><span class="gold">OPTIMAN</span></div></div>
+          <div class="face f-left"><div class="spine"><span class="gold">OPTIMAN</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__text">
+      <p class="eyebrow"><span>LEGIO OPTIMAN</span><span aria-hidden="true">·</span><span>Премиальный комплекс для мужчин</span></p>
+      <p class="hero__motto gold-text" aria-hidden="true">VENI. VIDI. VICI.</p>
+      <h1 class="hero__title" id="hero-title">Пришёл. Увидел. Победил.</h1>
+      <p class="lead">Пять растительных экстрактов, которые мужчины Азии и Анд веками держали при себе как источник силы. Одна капсула в день. Тридцать дней дисциплины — как у легиона перед походом.</p>
+      <ul class="hero__chips" aria-label="Коротко о продукте">
+        <li class="chip"><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg>5 экстрактов в капсуле</li>
+        <li class="chip"><svg class="ico" aria-hidden="true"><use href="#i-capsule"/></svg>1 капсула в день</li>
+        <li class="chip"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>Гарантия 30 дней</li>
+      </ul>
+      <div class="hero__cta">
+        <a class="btn btn--gold" href="#pricing" data-scroll-tier="legion">Начать курс «Легион»</a>
+        <a class="btn btn--ghost" href="https://wa.me/77751426674" data-wa="Здравствуйте! Хочу узнать про OPTIMAN" data-place="hero"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Спросить в WhatsApp</a>
+      </div>
+      <p class="hero__micro">Менеджер перезвонит за 15 минут<i aria-hidden="true">·</i>Нейтральная упаковка без надписей</p>
+    </div>
+  </div>
+</section>
+<section class="trust" id="trust" aria-label="Факты о компании">
+  <ul class="container trust__grid">
+    <li class="trust__item reveal"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-factory"/></svg><span><small>Производство</small>Малайзия</span></li>
+    <li class="trust__item reveal reveal-d1"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-columns"/></svg><span><small>Импортёр</small>ТОО «РЕСУРС РК», Алматы</span></li>
+    <li class="trust__item reveal reveal-d2"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-truck"/></svg><span><small>Доставка</small>По всему Казахстану</span></li>
+    <li class="trust__item reveal reveal-d3"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-card"/></svg><span><small>Оплата</small>Kaspi или при получении</span></li>
+  </ul>
+</section>
+
+<section class="section problem" id="problem" aria-labelledby="problem-title">
+  <div class="container">
+    <div class="problem__grid">
+      <div class="problem__text reveal">
+        <p class="eyebrow eyebrow--left">I · VERITAS</p>
+        <h2 id="problem-title">Сила не уходит за один день</h2>
+        <p>Сначала вечером не остаётся энергии. Потом тренировку легко перенести. Потом пропадает тот огонь, с которым вы раньше брались за всё — за работу, за спорт, за неё. Это не приговор. Это сигнал собрать себя заново.</p>
+      </div>
+      <ul class="markers reveal reveal-d1">
+        <li><span class="markers__num" aria-hidden="true">I.</span>Меньше энергии к вечеру</li>
+        <li><span class="markers__num" aria-hidden="true">II.</span>Меньше желания и азарта</li>
+        <li><span class="markers__num" aria-hidden="true">III.</span>Меньше уверенности в себе</li>
+      </ul>
+    </div>
+    <div class="bridge reveal">
+      <div class="rule" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-diamond"/></svg></div>
+      <p>Легион не ждал, пока станет хуже. Он готовился каждый день.</p>
+      <a class="link" href="#formula">Как работает формула ↓</a>
+    </div>
+  </div>
+</section>
+<section class="section section--alt formula" id="formula" aria-labelledby="formula-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">II · FORMULA</p>
+      <h2 id="formula-title">Пять экстрактов. Одна капсула. 350&nbsp;мг</h2>
+    </div>
+    <dl class="stats reveal">
+      <div class="stat"><dt class="sr-only">Экстрактов</dt><dd><span class="stat__num gold-text">5</span><span class="stat__label">экстрактов</span></dd></div>
+      <div class="stat"><dt class="sr-only">Масса капсулы</dt><dd><span class="stat__num gold-text">350<small>мг</small></span><span class="stat__label">в капсуле</span></dd></div>
+      <div class="stat"><dt class="sr-only">Флавоноиды</dt><dd><span class="stat__num gold-text">70<small>мг</small></span><span class="stat__label">флавоноидов<br>(233% АУП*)</span></dd></div>
+      <div class="stat"><dt class="sr-only">Гинсенозиды</dt><dd><span class="stat__num gold-text">30<small>мг</small></span><span class="stat__label">гинсенозидов<br>(600% АУП*)</span></dd></div>
+    </dl>
+    <p class="footnote footnote--center">* % от адекватного уровня потребления по Единым санитарно-эпидемиологическим требованиям ЕАЭС. Данные этикетки.</p>
+
+    <div class="formula__grid">
+      <div class="formula__visual glow reveal">
+        <picture>
+          <source srcset="/public/img/pack-duo.webp" type="image/webp">
+          <img src="/public/img/pack-duo.png" alt="Две упаковки OPTIMAN и блистер с капсулами" width="1256" height="713" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <ol class="formula__list">
+        <li class="ingr reveal">
+          <span class="ingr__num" aria-hidden="true">I</span>
+          <h3>Горянка стрелолистная</h3>
+          <span class="ingr__latin" lang="la"><em>Epimedium sagittatum</em></span>
+          <p>В китайской традиции её называют «травой неутомимого козла». Главный источник флавоноидов в формуле: 70&nbsp;мг в каждой капсуле.</p>
+        </li>
+        <li class="ingr reveal">
+          <span class="ingr__num" aria-hidden="true">II</span>
+          <h3>Кордицепс китайский</h3>
+          <span class="ingr__latin" lang="la"><em>Cordyceps sinensis</em></span>
+          <p>Гриб тибетских высокогорий, который ценили при императорском дворе Китая. Традиционный спутник выносливости.</p>
+        </li>
+        <li class="ingr reveal">
+          <span class="ingr__num" aria-hidden="true">III</span>
+          <h3>Эврикома длиннолистная</h3>
+          <span class="ingr__latin" lang="la"><em>Eurycoma longifolia</em></span>
+          <p>Тонгкат али — «трость Али». Мужской корень джунглей Малайзии, той самой страны, где производится OPTIMAN.</p>
+        </li>
+        <li class="ingr reveal">
+          <span class="ingr__num" aria-hidden="true">IV</span>
+          <h3>Женьшень обыкновенный</h3>
+          <span class="ingr__latin" lang="la"><em>Panax ginseng</em></span>
+          <p>В Азии его веками называли «корнем жизни». Источник гинсенозидов: 30&nbsp;мг в каждой капсуле.</p>
+        </li>
+        <li class="ingr reveal">
+          <span class="ingr__num" aria-hidden="true">V</span>
+          <h3>Мака перуанская</h3>
+          <span class="ingr__latin" lang="la"><em>Lepidium meyenii</em></span>
+          <p>Корнеплод с высоты 4000 метров. По легенде, инки давали его воинам перед походом.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+<section class="section course" id="course" aria-labelledby="course-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">III · DISCIPLINA</p>
+      <h2 id="course-title">Победа — это не таблетка. Это 30&nbsp;дней дисциплины</h2>
+    </div>
+    <p class="course__intro reveal">По инструкции OPTIMAN принимают по одной капсуле в день во время еды курсом один месяц. 30&nbsp;дней — 30&nbsp;капсул — 3&nbsp;упаковки. Ровно столько входит в набор «Легион».</p>
+    <ol class="timeline">
+      <li class="step reveal">
+        <span class="step__dot" aria-hidden="true"></span>
+        <span class="step__latin" lang="la">I · PRAESTATIO</span>
+        <span class="step__days">Дни 1–10</span>
+        <h3>Присяга</h3>
+        <p>Одна капсула с завтраком — новый ритуал вашего утра.</p>
+      </li>
+      <li class="step reveal reveal-d1">
+        <span class="step__dot" aria-hidden="true"></span>
+        <span class="step__latin" lang="la">II · ITER</span>
+        <span class="step__days">Дни 11–20</span>
+        <h3>Марш</h3>
+        <p>Ритуал становится привычкой, привычка — характером.</p>
+      </li>
+      <li class="step reveal reveal-d2">
+        <span class="step__dot" aria-hidden="true"></span>
+        <span class="step__latin" lang="la">III · TRIUMPHUS</span>
+        <span class="step__days">Дни 21–30</span>
+        <h3>Триумф</h3>
+        <p>Вы прошли полный курс так, как задумано формулой.</p>
+      </li>
+    </ol>
+    <div class="course__cta reveal">
+      <p class="course__sum"><span>1 упаковка = 10 дней</span><i aria-hidden="true">·</i><span>Полный курс = 3 упаковки</span></p>
+      <div><button type="button" class="btn btn--gold" data-order="legion" data-place="course">Взять полный курс —&nbsp;<span data-money="legion">49 990 ₸</span></button></div>
+      <p class="footnote footnote--center">БАД. Не является лекарственным средством. Индивидуальные ощущения могут отличаться.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section legion" id="legion" aria-label="История OPTIMAN">
+  <div class="container">
+    <p class="eyebrow reveal">IV · LEGIO</p>
+    <blockquote class="legion__quote reveal">Легионер выходил в бой не потому, что не знал страха. Он выходил, потому что был готов.</blockquote>
+    <p class="legion__text reveal">OPTIMAN создан для тех, кто понимает: сила — не дар судьбы, а результат ежедневного выбора. Без оправданий. Без компромиссов.</p>
+    <ul class="virtues reveal">
+      <li class="virtue"><svg class="ico" aria-hidden="true"><use href="#i-sword"/></svg><b lang="la">VIRTUS</b><span>Сила</span></li>
+      <li class="virtue"><svg class="ico" aria-hidden="true"><use href="#i-target"/></svg><b lang="la">DISCIPLINA</b><span>Контроль</span></li>
+      <li class="virtue"><svg class="ico" aria-hidden="true"><use href="#i-flame"/></svg><b lang="la">ARDOR</b><span>Страсть</span></li>
+      <li class="virtue"><svg class="ico" aria-hidden="true"><use href="#i-crown"/></svg><b lang="la">DIGNITAS</b><span>Статус</span></li>
+      <li class="virtue"><svg class="ico" aria-hidden="true"><use href="#i-bolt"/></svg><b lang="la">VIGOR</b><span>Энергия</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt reviews" id="reviews" aria-labelledby="reviews-title" hidden>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">V · TESTIMONIA</p>
+      <h2 id="reviews-title">Слово тех, кто прошёл курс</h2>
+    </div>
+    <div class="reviews__grid" id="reviews-list"></div>
+    <p class="footnote footnote--center">БАД. Не является лекарственным средством. Индивидуальные ощущения могут отличаться.</p>
+  </div>
+</section>
+<section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">VI · ELIGE</p>
+      <h2 id="pricing-title">Выберите свой легион</h2>
+      <p>Курс по инструкции — 30 дней. Выберите, с чего начнёте.</p>
+    </div>
+    <div class="promo" id="promo" hidden>
+      <span>Цены акции действуют до <b data-promo-date></b></span>
+      <span class="promo__timer" aria-label="До конца акции">
+        <span><b data-t="d">00</b><small>ДНИ</small></span>
+        <span><b data-t="h">00</b><small>ЧАСЫ</small></span>
+        <span><b data-t="m">00</b><small>МИН</small></span>
+      </span>
+    </div>
+    <div class="tiers" id="tiers"></div>
+    <ul class="assure" aria-label="Условия заказа">
+      <li><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>Гарантия 30 дней</li>
+      <li><svg class="ico" aria-hidden="true"><use href="#i-box"/></svg>Нейтральная упаковка</li>
+      <li><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Kaspi / при получении</li>
+      <li><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg>Доставка по Казахстану</li>
+    </ul>
+    <p class="pricing__help">Не уверены, какой выбрать? <a class="link" href="https://wa.me/77751426674" data-wa="Здравствуйте! Помогите подобрать курс OPTIMAN" data-place="pricing">Напишите куратору в WhatsApp</a> — подберём курс за 2 минуты</p>
+  </div>
+</section>
+
+<section class="section guarantee" id="guarantee" aria-labelledby="guarantee-title">
+  <div class="container guarantee__grid">
+    <div class="seal reveal">
+      <svg class="seal__ring" viewBox="0 0 300 300" aria-hidden="true">
+        <defs><path id="seal-path" d="M150 28a122 122 0 1 1 0 244a122 122 0 1 1 0-244"/></defs>
+        <circle cx="150" cy="150" r="146" fill="none" stroke="#C39E76" stroke-width="1.25"/>
+        <circle cx="150" cy="150" r="140" fill="none" stroke="#C39E76" stroke-opacity=".5" stroke-width=".75"/>
+        <circle cx="150" cy="150" r="104" fill="none" stroke="#C39E76" stroke-opacity=".5" stroke-width=".75"/>
+        <circle cx="150" cy="150" r="98" fill="none" stroke="#C39E76" stroke-width="1.25"/>
+        <circle cx="150" cy="150" r="92" fill="#161211"/>
+        <text dy="5"><textPath href="#seal-path" textLength="760" lengthAdjust="spacing">XXX DIES · FIDES · OPTIMAN · XXX DIES · FIDES · OPTIMAN ·</textPath></text>
+      </svg>
+      <div class="seal__mark"><img src="/public/brand/logo-mark.svg" alt="" width="120" height="124" loading="lazy"></div>
+    </div>
+    <div class="guarantee__text reveal reveal-d1">
+      <p class="eyebrow eyebrow--left">VII · FIDES</p>
+      <h2 id="guarantee-title">XXX дней. Слово легионера</h2>
+      <p>Если за 30 дней OPTIMAN вам не подошёл — вернём 100% стоимости первого заказа. Без допросов: одно сообщение в WhatsApp. Невскрытые упаковки заберём сами.</p>
+      <a class="link guarantee__link" href="/oferta.html#s8">Условия гарантии — оферта, раздел VIII</a>
+      <div class="minis">
+        <div class="mini"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-box"/></svg><div><b>Нейтральная упаковка</b><p>Без логотипов и надписей о содержимом. Курьер не знает, что внутри.</p></div></div>
+        <div class="mini"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-lock"/></svg><div><b>Конфиденциальность</b><p>Ваши данные используются только для доставки заказа.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt delivery" id="delivery" aria-labelledby="delivery-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">VIII · ITER</p>
+      <h2 id="delivery-title">Доставка и оплата</h2>
+      <p>Отправляем в день заказа, если вы подтвердили его до 18:00.</p>
+    </div>
+    <div class="delivery__grid">
+      <table class="dtable reveal">
+        <caption>TEMPORA · СРОКИ</caption>
+        <tbody>
+          <tr><th scope="row">Алматы</th><td>в день заказа или на следующий день</td></tr>
+          <tr><th scope="row">Астана, Шымкент</th><td>1–2 рабочих дня</td></tr>
+          <tr><th scope="row">Областные центры</th><td>2–4 рабочих дня</td></tr>
+          <tr><th scope="row">Другие населённые пункты</th><td>3–7 рабочих дней</td></tr>
+        </tbody>
+      </table>
+      <div class="paybox reveal reveal-d1">
+        <h3><svg class="ico ico--lg" aria-hidden="true"><use href="#i-card"/></svg>Оплата</h3>
+        <ul>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Kaspi — Gold или QR</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Наличными или картой при получении</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Нейтральная упаковка без надписей</span></li>
+        </ul>
+        <p class="note">Способ оплаты уточнит менеджер при подтверждении заказа. Подробности — в <a class="link" href="/oferta.html#s6">оферте, раздел VI</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">IX · QUAESTIONES</p>
+      <h2 id="faq-title">Вопросы и ответы</h2>
+    </div>
+    <div class="faq__list reveal">
+      <details class="qa" open>
+        <summary><span class="qa__n" aria-hidden="true">I</span>OPTIMAN — это лекарство?<span class="qa__plus" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Нет. Это биологически активная добавка к пище — источник флавоноидов и гинсенозидов. Рецепт не нужен. Не является лекарственным средством.</p></div>
+      </details>
+      <details class="qa">
+        <summary><span class="qa__n" aria-hidden="true">II</span>Как принимать?<span class="qa__plus" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Взрослым по 1 капсуле в день во время еды. Курс — 1 месяц (30 капсул = 3 упаковки). При необходимости курс можно повторить.</p></div>
+      </details>
+      <details class="qa">
+        <summary><span class="qa__n" aria-hidden="true">III</span>Сколько упаковок нужно?<span class="qa__plus" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Одна упаковка — 10 дней. Полный курс по инструкции — 3 упаковки, это набор «Легион».</p></div>
+      </details>
+      <details class="qa">
+        <summary><span class="qa__n" aria-hidden="true">IV</span>Есть ли противопоказания?<span class="qa__plus" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Индивидуальная непереносимость компонентов, беременность, кормление грудью. Перед применением рекомендуется проконсультироваться с врачом — особенно если вы принимаете лекарства.</p></div>
+      </details>
+      <details class="qa">
+        <summary><span class="qa__n" aria-hidden="true">V</span>Кто производитель?<span class="qa__plus" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>PHYTES BIOTEK SDN. BHD, Малайзия. Импортёр в Казахстане — ТОО «РЕСУРС РК», Алматы.</p></div>
+      </details>
+      <details class="qa">
+        <summary><span class="qa__n" aria-hidden="true">VI</span>Как быстро доставите и как выглядит посылка?<span class="qa__plus" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Алматы — в день заказа или на следующий день. Астана и Шымкент — 1–2 рабочих дня, областные центры — 2–4, другие населённые пункты — 3–7. Отправляем в день заказа, если вы подтвердили его до 18:00.</p><p>Нейтральная упаковка без надписей.</p></div>
+      </details>
+      <details class="qa">
+        <summary><span class="qa__n" aria-hidden="true">VII</span>Как оплатить?<span class="qa__plus" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Kaspi (Gold или QR) или при получении. Способ уточнит менеджер при подтверждении.</p></div>
+      </details>
+      <details class="qa">
+        <summary><span class="qa__n" aria-hidden="true">VIII</span>Как работает гарантия?<span class="qa__plus" aria-hidden="true"></span></summary>
+        <div class="qa__body"><p>Если за 30 дней OPTIMAN вам не подошёл — вернём 100% стоимости первого заказа. Без допросов: одно сообщение в WhatsApp. Невскрытые упаковки заберём сами.</p><p><a class="link" href="/oferta.html#s8">Условия гарантии — оферта, раздел VIII</a></p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section final" id="final" aria-labelledby="final-title">
+  <div class="container">
+    <img class="final__mark reveal" src="/public/brand/logo-wordmark.svg" alt="OPTIMAN" width="349" height="96" loading="lazy">
+    <div class="final__visual glow reveal">
+      <picture>
+        <source srcset="/public/img/pack-trio.webp" type="image/webp">
+        <img src="/public/img/pack-trio.png" alt="Набор «Легион»: три упаковки OPTIMAN и блистер" width="1114" height="822" loading="lazy" decoding="async">
+      </picture>
+    </div>
+    <p class="eyebrow reveal">X · VICTORIA</p>
+    <h2 id="final-title" class="reveal">Легион выступает. Вы с нами?</h2>
+    <button type="button" class="btn btn--gold reveal" data-order="legion" data-place="final">Начать курс «Легион» —&nbsp;<span data-money="legion">49 990 ₸</span></button>
+    <p class="final__note">Гарантия 30 дней<i aria-hidden="true">·</i>Доставка бесплатно<i aria-hidden="true">·</i>Нейтральная упаковка</p>
+  </div>
+</section>
 </main>
 
-<footer class="footer" id="footer"><!--@footer--></footer>
-<div class="sticky-bar" id="sticky-bar" aria-hidden="true"><!--@sticky-bar--></div>
-<div class="modal" id="order-modal" hidden><!--@order-modal--></div>
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="footer__logo" href="#hero" aria-label="OPTIMAN — наверх"><img src="/public/brand/logo-horizontal.svg" alt="OPTIMAN · VENI VIDI VICI" width="154" height="46" loading="lazy"></a>
+        <p class="footer__about">Премиальный комплекс для мужчин. Пять растительных экстрактов, одна капсула в день.</p>
+      </div>
+      <div>
+        <h4>CONTACTUS</h4>
+        <ul>
+          <li><a class="footer__phone" href="tel:+77751426674" data-tel>+7 775 142 66 74</a></li>
+          <li><a href="https://wa.me/77751426674" data-wa="Здравствуйте! Хочу узнать про OPTIMAN" data-place="footer">WhatsApp</a></li>
+          <li><a href="https://t.me/" data-tg hidden>Telegram</a></li>
+          <li><a href="mailto:resurs.rk.kz@gmail.com" data-email>resurs.rk.kz@gmail.com</a></li>
+          <li>Ежедневно <span data-hours>09:00–21:00</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>INFORMATIO</h4>
+        <ul>
+          <li><a href="/oferta.html">Публичная оферта</a></li>
+          <li><a href="/privacy.html">Политика конфиденциальности</a></li>
+          <li><a href="#delivery">Доставка и оплата</a></li>
+          <li><a href="#guarantee">Гарантия</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>REQUISITA</h4>
+        <ul>
+          <li>ТОО «РЕСУРС РК»</li>
+          <li>БИН 250940021253</li>
+          <li>050000, г. Алматы, Ауэзовский район, мкр. 5, дом 21, кв. 114</li>
+          <li data-sgr hidden>СГР: <span data-sgr-value></span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__disclaimer">БАД. Не является лекарственным средством. Противопоказания: индивидуальная непереносимость компонентов, беременность, кормление грудью. Перед применением рекомендуется консультация врача.</p>
+    <div class="footer__bottom"><span>© 2026 ТОО «РЕСУРС РК»</span><span lang="la">VENI · VIDI · VICI</span></div>
+  </div>
+</footer>
+
+<div class="sticky-bar" id="sticky-bar" aria-hidden="true">
+  <picture><source srcset="/public/img/pack-trio.webp" type="image/webp"><img class="sticky-bar__img" src="/public/img/pack-trio.png" alt="" width="46" height="46" loading="lazy"></picture>
+  <div class="sticky-bar__info"><b>Легион · <span data-money="legion">49 990 ₸</span></b><span>Полный курс · доставка бесплатно</span></div>
+  <a class="icon-btn" href="https://wa.me/77751426674" data-wa="Здравствуйте! Хочу узнать про OPTIMAN" data-place="sticky" aria-label="Написать в WhatsApp"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></a>
+  <button type="button" class="btn btn--gold" data-order="legion" data-place="sticky">Заказать</button>
+</div>
+<div class="modal" id="order-modal" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="order-title">
+    <button type="button" class="modal__close" data-close aria-label="Закрыть"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+
+    <div class="mview" data-view="form">
+      <h2 class="modal__title" id="order-title">Оформление заказа</h2>
+      <p class="modal__sub">Менеджер перезвонит за 15 минут и уточнит детали</p>
+      <form class="form" id="order-form" novalidate>
+        <fieldset class="tpick">
+          <legend>Набор</legend>
+          <div class="tpick__list" id="tpick-list"></div>
+        </fieldset>
+        <div class="fgrid">
+          <div class="field" data-field="name">
+            <label for="f-name">Имя</label>
+            <input class="input" id="f-name" name="name" type="text" autocomplete="given-name" maxlength="60" placeholder="Как к вам обращаться" aria-describedby="e-name" required>
+            <p class="field__err" id="e-name" role="alert"></p>
+          </div>
+          <div class="field" data-field="phone">
+            <label for="f-phone">Телефон</label>
+            <input class="input" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (7__) ___-__-__" aria-describedby="e-phone" required>
+            <p class="field__err" id="e-phone" role="alert"></p>
+          </div>
+          <div class="field" data-field="city">
+            <label for="f-city">Город</label>
+            <select class="input" id="f-city" name="city" aria-describedby="e-city" required>
+              <option value="" selected disabled>Выберите город</option>
+              <option>Алматы</option><option>Астана</option><option>Шымкент</option><option>Караганда</option>
+              <option>Актобе</option><option>Атырау</option><option>Павлодар</option><option>Усть-Каменогорск</option>
+              <option>Костанай</option><option>Тараз</option><option value="other">Другой</option>
+            </select>
+            <div id="f-city-other-wrap" class="city-other" hidden>
+              <label class="sr-only" for="f-city-other">Ваш город</label>
+              <input class="input" id="f-city-other" type="text" maxlength="60" autocomplete="address-level2" placeholder="Напишите ваш город">
+            </div>
+            <p class="field__err" id="e-city" role="alert"></p>
+          </div>
+          <fieldset class="fgroup field" data-field="payment">
+            <legend>Способ оплаты</legend>
+            <div class="seg">
+              <label><input type="radio" name="payment" value="kaspi" checked>Kaspi</label>
+              <label><input type="radio" name="payment" value="cod">При получении</label>
+            </div>
+            <p class="field__err" role="alert"></p>
+          </fieldset>
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Сайт</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+        </div>
+        <div class="summary"><span data-ship>Доставка бесплатно</span><b data-sum>49 990 ₸</b></div>
+        <button type="submit" class="btn btn--gold btn--block">Подтвердить заказ — 49 990 ₸</button>
+        <p class="form-legal">Нажимая кнопку, вы принимаете условия <a href="/oferta.html" target="_blank" rel="noopener">публичной оферты</a> и <a href="/privacy.html" target="_blank" rel="noopener">политики конфиденциальности</a></p>
+      </form>
+    </div>
+
+    <div class="mview mview--result" data-view="success" hidden>
+      <img class="result__mark" src="/public/brand/logo-mark.svg" alt="" width="120" height="124">
+      <h2 class="modal__title">Заказ <span data-order-num>OP-0000-0000</span> принят</h2>
+      <p class="result__text">Менеджер позвонит с номера <a class="link nowrap" href="tel:+77751426674" data-tel>+7 775 142 66 74</a> в течение 15 минут (09:00–21:00).</p>
+      <div class="result__actions">
+        <a class="btn btn--gold" href="https://wa.me/77751426674" data-wa-success target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Написать в WhatsApp сейчас</a>
+        <button type="button" class="btn btn--ghost" data-close>Вернуться на сайт</button>
+      </div>
+    </div>
+
+    <div class="mview mview--result" data-view="error" hidden>
+      <div class="result__icon"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg></div>
+      <h2 class="modal__title">Не получилось отправить заявку</h2>
+      <p class="result__text">Напишите нам в WhatsApp — заказ оформим там же.</p>
+      <div class="result__actions">
+        <a class="btn btn--gold" href="https://wa.me/77751426674" data-wa-error target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Оформить в WhatsApp</a>
+        <a class="btn btn--ghost" href="tel:+77751426674" data-tel>Позвонить: +7 775 142 66 74</a>
+        <button type="button" class="link result__retry" data-retry>Попробовать ещё раз</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="/public/js/config.js" defer></script>
 <script src="/public/js/pack3d.js" defer></script>

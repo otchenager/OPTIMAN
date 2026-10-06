@@ -1,0 +1,109 @@
+/* OPTIMAN · 3D-упаковка (из components/pack3d.html, без изменений) */
+.pack3d-stage{
+  --u: 3.4px;                       /* 110мм × 3.4 = 374px ширина лицевой стороны */
+  --w: calc(110 * var(--u));
+  --h: calc(70 * var(--u));
+  --d: calc(20 * var(--u));
+  --box: #1b1819;                   /* матовый чёрный картон */
+  --box-2: #141213;
+  --bronze: #C39E76;
+  --bronze-hi: #E6CFA8;
+  --bronze-lo: #8E6A4C;
+  position: relative;
+  width: var(--w); height: calc(var(--h) + var(--d));
+  perspective: calc(var(--w) * 2.3);
+  display: grid; place-items: center;
+  touch-action: pan-y;
+}
+@media (max-width: 640px){ .pack3d-stage{ --u: 2.55px; } }
+@media (max-width: 380px){ .pack3d-stage{ --u: 2.25px; } }
+
+/* мягкий свет и тень под пачкой */
+.pack3d-stage::before{
+  content:""; position:absolute; inset:-30% -25%;
+  background: radial-gradient(50% 45% at 50% 48%, rgba(195,158,118,.22), rgba(195,158,118,.06) 45%, transparent 70%);
+  filter: blur(6px); pointer-events:none;
+}
+.pack3d-shadow{
+  position:absolute; left:50%; bottom: calc(var(--d) * -0.6);
+  width: calc(var(--w) * .9); height: calc(var(--d) * 1.1);
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(0,0,0,.75), transparent);
+  filter: blur(10px); pointer-events:none;
+}
+
+.pack3d{
+  position: relative; width: var(--w); height: var(--h);
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, -12deg)) rotateY(var(--ry, -28deg));
+  will-change: transform;
+}
+.pack3d .face{
+  position:absolute; left:50%; top:50%;
+  background: var(--box);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+/* тонкая фактура soft-touch картона */
+.pack3d .face::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: screen;
+}
+.pack3d .f-front, .pack3d .f-back { width: var(--w); height: var(--h); margin: calc(var(--h) / -2) 0 0 calc(var(--w) / -2); }
+.pack3d .f-right, .pack3d .f-left { width: var(--d); height: var(--h); margin: calc(var(--h) / -2) 0 0 calc(var(--d) / -2); }
+.pack3d .f-top, .pack3d .f-bottom { width: var(--w); height: var(--d); margin: calc(var(--d) / -2) 0 0 calc(var(--w) / -2); }
+
+.pack3d .f-front { transform: translateZ(calc(var(--d) / 2)); }
+.pack3d .f-back  { transform: rotateY(180deg) translateZ(calc(var(--d) / 2)); background: var(--box-2); }
+.pack3d .f-right { transform: rotateY(90deg)  translateZ(calc(var(--w) / 2)); background: #121011; }
+.pack3d .f-left  { transform: rotateY(-90deg) translateZ(calc(var(--w) / 2)); background: #161415; }
+.pack3d .f-top   { transform: rotateX(90deg)  translateZ(calc(var(--h) / 2)); background: #2a2627; }
+.pack3d .f-bottom{ transform: rotateX(-90deg) translateZ(calc(var(--h) / 2)); background: #0d0b0c; }
+
+/* блик, который движется вместе с наклоном */
+.pack3d .sheen{
+  position:absolute; inset:0; pointer-events:none; mix-blend-mode: screen;
+  background: linear-gradient(calc(105deg + var(--ry-num, -28) * 1deg),
+              transparent 35%, rgba(255,240,215,.04) 48%, rgba(255,240,215,.08) 50%, transparent 62%);
+}
+
+/* ——— лицевая сторона: точная раскладка как на реальной пачке ——— */
+.pack3d .gold{
+  background: linear-gradient(175deg, var(--bronze-hi) 0%, var(--bronze) 45%, var(--bronze-lo) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.pack3d .brand{
+  position:absolute; left: 0; right: 0; top: 39%;
+  text-align:center; font-family: 'Cinzel', serif; font-weight: 600;
+  font-size: calc(var(--u) * 21); line-height: 1; letter-spacing: .02em;
+}
+.pack3d .motto{
+  position:absolute; left: 0; right: 0; top: 66%;
+  text-align:center; font-family: 'Cinzel', serif; font-weight: 600;
+  font-size: calc(var(--u) * 7.2); letter-spacing: .03em;
+}
+.pack3d .dose, .pack3d .count{
+  position:absolute; bottom: 7%; font-family: 'Manrope', sans-serif; font-weight: 700;
+  font-size: calc(var(--u) * 4); color: var(--bronze); letter-spacing: .01em;
+}
+.pack3d .dose{ left: 4.5%; bottom: 17%; }
+.pack3d .count{ right: 6%; }
+.pack3d .dose small, .pack3d .count small{ font-size: .72em; font-weight: 600; }
+.pack3d .sildex{ position:absolute; right: 9%; top: 9%; width: calc(var(--u) * 22); height: auto; }
+
+.pack3d .spine{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-family:'Cinzel', serif; font-weight:600; letter-spacing:.08em;
+}
+.pack3d .f-top .spine{ font-size: calc(var(--u) * 8.5); }
+.pack3d .f-top .spine small{ font-family:'Manrope',sans-serif; font-size:.4em; font-weight:700; letter-spacing:.02em; margin-left:1.4em; color:var(--bronze); }
+.pack3d .f-right .spine, .pack3d .f-left .spine{ writing-mode: vertical-rl; font-size: calc(var(--u) * 6.2); }
+.pack3d .f-back .label{
+  position:absolute; inset: 8% 7%; color: rgba(221,201,170,.62);
+  font: 500 calc(var(--u) * 1.9)/1.45 'Manrope', sans-serif;
+}
+.pack3d .f-back .label b{ color: var(--bronze); font-weight: 700; }
+.pack3d .f-back .label .t{ font-family:'Cinzel',serif; font-size: 2.3em; letter-spacing:.06em; margin-bottom:.4em; }
+
+@media (prefers-reduced-motion: reduce){ .pack3d{ transition:none !important; } }

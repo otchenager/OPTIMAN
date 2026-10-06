@@ -42,7 +42,6 @@
   var phone = form.querySelector('#f-phone');
   function phoneDigits(v) {
     var x = String(v || '').replace(/\D/g, '');
-    if (x.length === 10 && x[0] === '7') x = '7' + x;
     if (x[0] === '8') x = '7' + x.slice(1);
     if (x && x[0] !== '7') x = '7' + x;
     return x.slice(0, 11);
@@ -68,7 +67,9 @@
     var t = (e.clipboardData || window.clipboardData);
     if (!t) return;
     e.preventDefault();
-    phone.value = formatPhone(phoneDigits(t.getData('text')));
+    var raw = t.getData('text').replace(/\D/g, '');
+    if (raw.length === 10 && raw[0] === '7') raw = '7' + raw;  // вставили номер без кода страны
+    phone.value = formatPhone(phoneDigits(raw));
     prevDigits = phoneDigits(phone.value);
   });
   phone.addEventListener('focus', function () { if (!phone.value) { phone.value = '+7 ('; prevDigits = '7'; } });

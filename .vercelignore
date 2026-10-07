@@ -1,0 +1,12 @@
+# Не попадает в деплой Vercel. Сайт — статика из корня + функция api/order.js.
+# server.js — только для локального запуска; если он есть в деплое, Vercel запускает его как сервер.
+server.js
+package-lock.json
+_archive
+_screens
+components
+CLAUDE_CODE_PROMPT.md
+CONTINUE_PROMPT.md
+dataoptiman.txt
+*.docx
+.env*

@@ -1,0 +1,306 @@
+{
+ "content": [
+  {
+   "widgetName": "raShowcase",
+   "type": "billboard",
+   "blocks": [
+    {
+     "imgLink": "",
+     "img": {
+      "src": "https://www.optiman.kz/public/ozon/optiman-banner-d.jpg",
+      "srcMobile": "https://www.optiman.kz/public/ozon/optiman-banner-m.jpg",
+      "alt": "OPTIMAN — комплекс из 5 растительных компонентов для мужчин",
+      "position": "width_full",
+      "positionMobile": "width_full",
+      "widthMobile": 1080,
+      "heightMobile": 1350
+     },
+     "title": {
+      "items": [
+       {
+        "type": "text",
+        "content": "OPTIMAN · VENI · VIDI · VICI"
+       }
+      ],
+      "size": "size5",
+      "align": "left",
+      "color": "color1"
+     },
+     "text": {
+      "size": "size2",
+      "align": "left",
+      "color": "color1",
+      "items": [
+       {
+        "type": "text",
+        "content": "Биологически активная добавка к пище — источник флавоноидов и гинсенозидов."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "В упаковке 10 капсул по 350 мг."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "widgetName": "raShowcase",
+   "type": "billboard",
+   "blocks": [
+    {
+     "imgLink": "",
+     "img": {
+      "src": "https://www.optiman.kz/public/ozon/optiman-numeri-d.jpg",
+      "srcMobile": "https://www.optiman.kz/public/ozon/optiman-numeri-m.jpg",
+      "alt": "Формула в цифрах: 5 компонентов, 350 мг, 1 капсула в день, 70 мг флавоноидов, 30 мг гинсенозидов",
+      "position": "width_full",
+      "positionMobile": "width_full",
+      "widthMobile": 1080,
+      "heightMobile": 1340
+     },
+     "title": {
+      "items": [
+       {
+        "type": "text",
+        "content": "NUMERI · Формула в цифрах"
+       }
+      ],
+      "size": "size5",
+      "align": "left",
+      "color": "color1"
+     },
+     "text": {
+      "size": "size2",
+      "align": "left",
+      "color": "color1",
+      "items": [
+       {
+        "type": "text",
+        "content": "В 1 капсуле: флавоноиды (в пересчёте на рутин) — 70 мг, 233% от адекватного уровня потребления; гинсенозиды — 30 мг, 600% от адекватного уровня потребления."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "Не превышает верхний допустимый уровень потребления. По данным этикетки."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "widgetName": "raShowcase",
+   "type": "billboard",
+   "blocks": [
+    {
+     "imgLink": "",
+     "img": {
+      "src": "https://www.optiman.kz/public/ozon/optiman-formula-d.jpg",
+      "srcMobile": "https://www.optiman.kz/public/ozon/optiman-formula-m.jpg",
+      "alt": "Состав: горянка стрелолистная, кордицепс китайский, эврикома длиннолистная, женьшень обыкновенный, мака перуанская",
+      "position": "width_full",
+      "positionMobile": "width_full",
+      "widthMobile": 1080,
+      "heightMobile": 1760
+     },
+     "title": {
+      "items": [
+       {
+        "type": "text",
+        "content": "FORMULA · Пять компонентов состава"
+       }
+      ],
+      "size": "size5",
+      "align": "left",
+      "color": "color1"
+     },
+     "text": {
+      "size": "size2",
+      "align": "left",
+      "color": "color1",
+      "items": [
+       {
+        "type": "text",
+        "content": "I. Горянка стрелолистная (Epimedium sagittatum) — экстракт надземной части. Растение традиционной китайской фитокультуры."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "II. Кордицепс китайский (Cordyceps sinensis) — экстракт мицелия. Гриб, известный по высокогорьям Тибета."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "III. Эврикома длиннолистная, тонгкат али (Eurycoma longifolia) — экстракт корня. Растение тропических лесов Юго-Восточной Азии, в том числе Малайзии."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "IV. Женьшень обыкновенный (Panax ginseng) — экстракт корня. Одно из самых известных растений восточноазиатской традиции."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "V. Мака перуанская (Lepidium meyenii) — порошок корня. Корнеплод высокогорий Анд, растёт на высоте около 4000 м."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "Также в составе: оболочка капсулы (гидроксипропилметилцеллюлоза), мальтодекстрин."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "widgetName": "raShowcase",
+   "type": "billboard",
+   "blocks": [
+    {
+     "imgLink": "",
+     "img": {
+      "src": "https://www.optiman.kz/public/ozon/optiman-disciplina-d.jpg",
+      "srcMobile": "https://www.optiman.kz/public/ozon/optiman-disciplina-m.jpg",
+      "alt": "Курс на 1 месяц: 1 капсула в день, 3 упаковки по 10 капсул",
+      "position": "width_full",
+      "positionMobile": "width_full",
+      "widthMobile": 1080,
+      "heightMobile": 1300
+     },
+     "title": {
+      "items": [
+       {
+        "type": "text",
+        "content": "DISCIPLINA · Как принимать"
+       }
+      ],
+      "size": "size5",
+      "align": "left",
+      "color": "color1"
+     },
+     "text": {
+      "size": "size2",
+      "align": "left",
+      "color": "color1",
+      "items": [
+       {
+        "type": "text",
+        "content": "Взрослым по 1 капсуле в день во время еды. Не превышайте рекомендуемую суточную дозу."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "Продолжительность приёма — 1 месяц: 30 капсул, то есть 3 упаковки по 10 капсул. Одной упаковки хватает на 10 дней."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "При необходимости приём можно повторить."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "widgetName": "raShowcase",
+   "type": "billboard",
+   "blocks": [
+    {
+     "imgLink": "",
+     "img": {
+      "src": "https://www.optiman.kz/public/ozon/optiman-origo-d.jpg",
+      "srcMobile": "https://www.optiman.kz/public/ozon/optiman-origo-m.jpg",
+      "alt": "Производство — Малайзия, импортёр — ТОО «РЕСУРС РК»",
+      "position": "width_full",
+      "positionMobile": "width_full",
+      "widthMobile": 1080,
+      "heightMobile": 1100
+     },
+     "title": {
+      "items": [
+       {
+        "type": "text",
+        "content": "ORIGO · Происхождение"
+       }
+      ],
+      "size": "size5",
+      "align": "left",
+      "color": "color1"
+     },
+     "text": {
+      "size": "size2",
+      "align": "left",
+      "color": "color1",
+      "items": [
+       {
+        "type": "text",
+        "content": "Производитель: PHYTES BIOTEK SDN. BHD, LOT 21, Jalan U1/19, Section U1, Hicom Glenmarie Industrial Park, 40150 Shah Alam, Selangor, Малайзия."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "Импортёр: ТОО «РЕСУРС РК», Алматы, Казахстан."
+       },
+       {
+        "type": "br"
+       },
+       {
+        "type": "text",
+        "content": "Свидетельство о государственной регистрации: AM.01.22.01.003.R.000139.06.26. Срок годности — 3 года."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "widgetName": "raTextBlock",
+   "title": {
+    "content": [
+     "NOTA BENE · Важно знать"
+    ],
+    "size": "size5",
+    "align": "left",
+    "color": "color1"
+   },
+   "theme": "default",
+   "padding": "type2",
+   "gapSize": "m",
+   "text": {
+    "size": "size2",
+    "align": "left",
+    "color": "color1",
+    "content": [
+     "БАД. Не является лекарственным средством.",
+     "Противопоказания: индивидуальная непереносимость компонентов, беременность, кормление грудью. Перед применением рекомендуется проконсультироваться с врачом.",
+     "Условия хранения: в сухом, защищённом от прямых солнечных лучей и недоступном для детей месте при температуре от 0 до +25 °С."
+    ]
+   }
+  }
+ ],
+ "version": 0.3
+}

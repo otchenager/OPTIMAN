@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>OPTIMAN · Ozon rich</title>
+<link rel="stylesheet" href="/public/fonts/fonts.css">
+<style>
+:root{
+  --bg:#0B0908; --bg-2:#110E0C; --surface:#161211; --surface-2:#1D1816;
+  --line:rgba(195,158,118,.18); --line-strong:rgba(195,158,118,.42);
+  --gold:#C39E76; --gold-hi:#E6CFA8; --gold-lo:#8E6A4C;
+  --gold-grad:linear-gradient(175deg,#E9D3AE 0%,#C39E76 45%,#8E6A4C 100%);
+  --text:#E4DACB; --muted:#A89A87;
+  --f-latin:'Cinzel','Cormorant Garamond',Georgia,serif;
+  --f-head:'Cormorant Garamond',Georgia,serif;
+  --f-text:'Manrope',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:var(--f-text);-webkit-font-smoothing:antialiased}
+.slide{display:none;position:relative;overflow:hidden;background:
+  radial-gradient(ellipse at 70% 45%,rgba(195,158,118,.13),transparent 60%),
+  linear-gradient(180deg,#0E0B0A,#0B0908)}
+.slide.on{display:flex}
+.slide::before{content:"";position:absolute;inset:0;opacity:.05;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.frame{position:absolute;inset:var(--fi);border:1px solid var(--line);pointer-events:none}
+.frame::after{content:"";position:absolute;inset:8px;border:1px solid rgba(195,158,118,.07)}
+.gold{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-family:var(--f-latin);font-weight:600;letter-spacing:.32em;color:var(--gold);font-size:var(--eb)}
+.rule{display:flex;align-items:center;gap:.6em;color:var(--gold)}
+.rule::before,.rule::after{content:"";height:1px;width:var(--rw);background:linear-gradient(90deg,transparent,var(--gold))}
+.rule::after{transform:scaleX(-1)}
+h1,h2{font-family:var(--f-head);font-weight:600;line-height:1.05}
+.latin{font-family:var(--f-head);font-style:italic;font-weight:500;color:var(--gold-hi)}
+img{display:block}
+body.d br.mb{display:none}
+
+/* ---------- DESKTOP ---------- */
+body.d{--fi:22px;--eb:20px;--rw:90px}
+body.m{--fi:24px;--eb:30px;--rw:120px}
+
+/* BANNER */
+#banner{align-items:center}
+body.d #banner{width:1440px;height:720px;padding:0 90px}
+body.m #banner{width:1080px;height:1350px;flex-direction:column;justify-content:center;padding:90px 70px;text-align:center}
+#banner .copy{position:relative;z-index:2}
+#banner .brand{font-family:var(--f-latin);font-weight:700;letter-spacing:.08em;line-height:1}
+body.d #banner .brand{font-size:128px}
+body.m #banner .brand{font-size:150px}
+#banner .motto{font-family:var(--f-latin);font-weight:600;letter-spacing:.42em;color:var(--gold);margin-top:22px}
+body.d #banner .motto{font-size:30px}
+body.m #banner .motto{font-size:38px;margin-top:28px;justify-content:center}
+#banner .sub{font-family:var(--f-head);font-weight:600;color:var(--text);line-height:1.15}
+body.d #banner .sub{font-size:46px;margin-top:44px;max-width:640px}
+body.m #banner .sub{font-size:60px;margin-top:40px}
+#banner .tag{font-size:22px;color:var(--muted);margin-top:24px;letter-spacing:.02em}
+body.m #banner .tag{font-size:34px;margin-top:28px}
+#banner .pack{position:relative;z-index:1;filter:drop-shadow(0 40px 60px rgba(0,0,0,.7))}
+body.d #banner .pack{width:600px;margin-left:auto}
+body.m #banner .pack{width:620px;margin:70px auto 0}
+
+/* NUMERI */
+#numeri{flex-direction:column}
+body.d #numeri{width:1440px;height:560px;padding:66px 80px}
+body.m #numeri{width:1080px;height:1340px;padding:80px 70px}
+.head{text-align:center}
+.head h2{color:var(--text);margin-top:14px}
+body.d .head h2{font-size:52px}
+body.m .head h2{font-size:68px}
+.stats{display:grid;flex:1}
+body.d .stats{grid-template-columns:repeat(5,1fr);margin-top:44px}
+body.m .stats{grid-template-columns:1fr 1fr;grid-auto-rows:1fr;margin-top:56px;gap:0}
+.stat{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-left:1px solid var(--line);padding:10px 14px}
+.stat:first-child{border-left:0}
+body.m .stat{border-left:0;border-top:1px solid var(--line)}
+body.m .stat:nth-child(even){border-left:1px solid var(--line)}
+body.m .stat:last-child{grid-column:1/3;border-left:0}
+.stat .n{font-family:var(--f-latin);font-weight:600;line-height:1}
+.stat .n small{font-size:.42em;margin-left:.12em;letter-spacing:.04em}
+body.d .stat .n{font-size:84px}
+body.m .stat .n{font-size:118px}
+.stat .l{color:var(--text);line-height:1.3;margin-top:14px}
+body.d .stat .l{font-size:22px}
+body.m .stat .l{font-size:36px;margin-top:16px}
+.stat .x{color:var(--muted);margin-top:6px}
+body.d .stat .x{font-size:18px}
+body.m .stat .x{font-size:28px}
+.foot{color:var(--muted);text-align:center}
+body.d .foot{font-size:17px;margin-top:22px}
+body.m .foot{font-size:26px;margin-top:30px;line-height:1.4}
+
+/* FORMULA */
+#formula{flex-direction:column}
+body.d #formula{width:1440px;height:740px;padding:66px 70px}
+body.m #formula{width:1080px;height:1760px;padding:80px 60px}
+.cards{display:grid;flex:1}
+body.d .cards{grid-template-columns:repeat(5,1fr);gap:18px;margin-top:44px}
+body.m .cards{grid-template-columns:1fr;gap:20px;margin-top:52px}
+.card{position:relative;border:1px solid var(--line);background:linear-gradient(180deg,rgba(29,24,22,.85),rgba(17,14,12,.85));display:flex;flex-direction:column}
+body.d .card{padding:34px 24px 30px;text-align:center;align-items:center}
+body.m .card{padding:30px 40px;flex-direction:row;align-items:center;gap:36px}
+.card .rn{font-family:var(--f-latin);font-weight:600;line-height:1}
+body.d .card .rn{font-size:64px}
+body.m .card .rn{font-size:84px;width:150px;text-align:center;flex:none}
+.card .rule2{width:46px;height:1px;background:var(--gold);opacity:.6}
+body.d .card .rule2{margin:24px auto}
+body.m .card .rule2{width:1px;height:150px;flex:none}
+.card h3{font-family:var(--f-head);font-weight:600;color:var(--text);line-height:1.1}
+body.d .card h3{font-size:31px;min-height:68px}
+body.m .card h3{font-size:50px}
+.card .latin{display:block}
+body.d .card .latin{font-size:24px;margin-top:10px}
+body.m .card .latin{font-size:38px;margin-top:8px}
+.card .part{font-family:var(--f-latin);color:var(--gold);letter-spacing:.14em;text-transform:uppercase}
+body.d .card .part{font-size:13px;margin-top:auto;padding-top:26px}
+body.m .card .part{font-size:22px;margin-top:14px}
+.card p{color:var(--muted);line-height:1.45}
+body.d .card p{font-size:20px;margin-top:16px}
+body.m .card p{display:none}
+
+/* DISCIPLINA */
+#disciplina{align-items:center}
+body.d #disciplina{width:1440px;height:720px;padding:0 90px;gap:60px}
+body.m #disciplina{width:1080px;height:1300px;flex-direction:column;padding:80px 70px;text-align:center}
+#disciplina .pack{filter:drop-shadow(0 40px 60px rgba(0,0,0,.7))}
+body.d #disciplina .pack{width:600px;flex:none}
+body.m #disciplina .pack{width:700px;margin-top:20px}
+#disciplina .copy{flex:1}
+#disciplina h2{color:var(--text);margin-top:14px}
+body.d #disciplina h2{font-size:54px}
+body.m #disciplina h2{font-size:68px}
+.steps{display:flex;flex-direction:column}
+body.d .steps{margin-top:40px;gap:22px}
+body.m .steps{margin:44px auto 0;gap:22px;width:640px}
+.step{display:flex;align-items:center;gap:24px;border-top:1px solid var(--line)}
+body.d .step{padding-top:22px}
+body.m .step{padding-top:22px;text-align:left}
+.step .k{font-family:var(--f-latin);font-weight:600;line-height:1;flex:none}
+body.d .step .k{font-size:64px;width:120px}
+body.m .step .k{font-size:84px;width:150px;text-align:center}
+.step .v{color:var(--text);line-height:1.3}
+body.d .step .v{font-size:26px}
+body.m .step .v{font-size:38px}
+.step .v b{color:var(--gold-hi);font-weight:600}
+body.m .step{width:100%}
+
+/* ORIGO */
+#origo{align-items:center}
+body.d #origo{width:1440px;height:560px;padding:0 100px;gap:80px}
+body.m #origo{width:1080px;height:1100px;flex-direction:column;justify-content:center;padding:80px 70px;text-align:center;gap:50px}
+.seal{flex:none;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;position:relative}
+.seal::after{content:"";position:absolute;inset:14px;border-radius:50%;border:1px dashed rgba(195,158,118,.3)}
+body.d .seal{width:300px;height:300px}
+body.m .seal{width:240px;height:240px}
+.seal img{width:46%}
+#origo h2{color:var(--text);margin-top:14px}
+body.d #origo h2{font-size:54px}
+body.m #origo h2{font-size:66px}
+.facts{display:grid}
+body.d .facts{grid-template-columns:1fr 1fr;gap:26px 50px;margin-top:36px}
+body.m .facts{grid-template-columns:1fr 1fr;gap:36px 30px;margin-top:44px}
+.fact .t{font-family:var(--f-latin);letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+body.d .fact .t{font-size:15px}
+body.m .fact .t{font-size:24px}
+.fact .v{color:var(--text);line-height:1.35;margin-top:6px}
+body.d .fact .v{font-size:24px}
+body.m .fact .v{font-size:32px}
+</style>
+</head>
+<body>
+
+<!-- 1 · BANNER -->
+<section class="slide" id="banner">
+  <div class="frame"></div>
+  <div class="copy">
+    <div class="brand gold">OPTIMAN</div>
+    <div class="motto rule">VENI · VIDI · VICI</div>
+    <h1 class="sub">Комплекс из 5 растительных компонентов для мужчин</h1>
+    <div class="tag">Биологически активная добавка к пище ·<br class="mb"> 10 капсул по 350 мг</div>
+  </div>
+  <img class="pack" src="/public/img/pack-single.png" alt="">
+</section>
+
+<!-- 2 · NUMERI -->
+<section class="slide" id="numeri">
+  <div class="frame"></div>
+  <div class="head"><div class="eyebrow">II · NUMERI</div><h2>Формула в цифрах</h2></div>
+  <div class="stats">
+    <div class="stat"><div class="n gold">5</div><div class="l">растительных<br>компонентов</div></div>
+    <div class="stat"><div class="n gold">350<small>мг</small></div><div class="l">масса<br>одной капсулы</div></div>
+    <div class="stat"><div class="n gold">1</div><div class="l">капсула<br>в день</div></div>
+    <div class="stat"><div class="n gold">70<small>мг</small></div><div class="l">флавоноидов<br>в капсуле</div><div class="x">233% АУП*</div></div>
+    <div class="stat"><div class="n gold">30<small>мг</small></div><div class="l">гинсенозидов<br>в капсуле</div><div class="x">600% АУП*</div></div>
+  </div>
+  <div class="foot">* АУП — адекватный уровень потребления. Не превышает верхний допустимый уровень. По данным этикетки</div>
+</section>
+
+<!-- 3 · FORMULA -->
+<section class="slide" id="formula">
+  <div class="frame"></div>
+  <div class="head"><div class="eyebrow">III · FORMULA</div><h2>Пять компонентов состава</h2></div>
+  <div class="cards">
+    <div class="card"><div class="rn gold">I</div><div class="rule2"></div><div><h3>Горянка стрелолистная</h3><span class="latin">Epimedium sagittatum</span><div class="part">экстракт надземной части</div></div><p>Растение традиционной китайской фитокультуры</p></div>
+    <div class="card"><div class="rn gold">II</div><div class="rule2"></div><div><h3>Кордицепс китайский</h3><span class="latin">Cordyceps sinensis</span><div class="part">экстракт мицелия</div></div><p>Гриб, известный по высокогорьям Тибета</p></div>
+    <div class="card"><div class="rn gold">III</div><div class="rule2"></div><div><h3>Эврикома длиннолистная</h3><span class="latin">Eurycoma longifolia</span><div class="part">экстракт корня</div></div><p>Тонгкат али, растение лесов Малайзии</p></div>
+    <div class="card"><div class="rn gold">IV</div><div class="rule2"></div><div><h3>Женьшень обыкновенный</h3><span class="latin">Panax ginseng</span><div class="part">экстракт корня</div></div><p>Классика восточноазиатской традиции</p></div>
+    <div class="card"><div class="rn gold">V</div><div class="rule2"></div><div><h3>Мака перуанская</h3><span class="latin">Lepidium meyenii</span><div class="part">порошок корня</div></div><p>Корнеплод высокогорий Анд</p></div>
+  </div>
+</section>
+
+<!-- 4 · DISCIPLINA -->
+<section class="slide" id="disciplina">
+  <div class="frame"></div>
+  <img class="pack" src="/public/img/pack-trio.png" alt="">
+  <div class="copy">
+    <div class="eyebrow">IV · DISCIPLINA</div>
+    <h2>Курс на 1 месяц</h2>
+    <div class="steps">
+      <div class="step"><div class="k gold">1</div><div class="v">капсула в день<br><b>во время еды</b></div></div>
+      <div class="step"><div class="k gold">10</div><div class="v">капсул в упаковке —<br><b>на 10 дней</b></div></div>
+      <div class="step"><div class="k gold">3</div><div class="v">упаковки —<br><b>курс 30 дней</b></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · ORIGO -->
+<section class="slide" id="origo">
+  <div class="frame"></div>
+  <div class="seal"><img src="/public/brand/logo-mark.svg" alt=""></div>
+  <div class="copy">
+    <div class="eyebrow">V · ORIGO</div>
+    <h2>Произведено в Малайзии</h2>
+    <div class="facts">
+      <div class="fact"><div class="t">Производитель</div><div class="v">PHYTES BIOTEK SDN. BHD,<br>Шах-Алам, Малайзия</div></div>
+      <div class="fact"><div class="t">Импортёр</div><div class="v">ТОО «РЕСУРС РК»,<br>Алматы, Казахстан</div></div>
+      <div class="fact"><div class="t">Форма выпуска</div><div class="v">10 капсул по 350 мг<br>в блистере</div></div>
+      <div class="fact"><div class="t">Срок годности</div><div class="v">3 года</div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+const q=new URLSearchParams(location.search);
+document.body.className=q.get('v')==='m'?'m':'d';
+document.getElementById(q.get('s')||'banner').classList.add('on');
+</script>
+</body>
+</html>

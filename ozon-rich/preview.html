@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>OPTIMAN · rich preview</title>
+<style>
+  body{margin:0;background:#fff;color:#001a34;font:16px/1.45 Arial,sans-serif}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px 16px}
+  .mob .wrap{padding:12px}
+  .lbl{font:600 13px Arial;color:#707f8d;margin:0 0 16px}
+  .w{margin-bottom:32px}
+  .w img{width:100%;display:block;border-radius:8px}
+  .w h3{font-size:22px;margin:16px 0 8px}
+  .mob .w h3{font-size:18px}
+  .w p{margin:0 0 8px}
+  .tb{background:#f2f3f5;border-radius:12px;padding:20px}
+</style>
+</head>
+<body>
+<div class="wrap"><p class="lbl" id="lbl"></p><div id="root"></div></div>
+<script>
+// Rough imitation of Ozon's rich-content renderer, for a visual check of /ozon-rich/rich-content.json
+const mob = new URLSearchParams(location.search).get('v') === 'm';
+document.body.className = mob ? 'mob' : '';
+document.getElementById('lbl').textContent = 'Предпросмотр rich-контента · ' + (mob ? 'мобильный' : 'десктоп') + ' (имитация)';
+const txt = items => items.map(i => i.type === 'br' ? '</p><p>' : i.content).join('');
+fetch('rich-content.json').then(r => r.json()).then(d => {
+  document.getElementById('root').innerHTML = d.content.map(w => {
+    if (w.widgetName === 'raShowcase') return w.blocks.map(b =>
+      `<div class="w"><img src="${mob ? b.img.srcMobile : b.img.src}" alt="${b.img.alt}">
+       <h3>${txt(b.title.items)}</h3><p>${txt(b.text.items)}</p></div>`).join('');
+    return `<div class="w tb"><h3>${w.title.content.join('')}</h3>${w.text.content.map(c => `<p>${c}</p>`).join('')}</div>`;
+  }).join('');
+});
+</script>
+</body>
+</html>
